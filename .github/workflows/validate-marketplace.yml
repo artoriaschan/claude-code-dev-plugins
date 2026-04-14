@@ -1,6 +1,10 @@
 name: Validate Marketplace JSON
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.claude-plugin/marketplace.json'
   pull_request:
     paths:
       - '.claude-plugin/marketplace.json'
