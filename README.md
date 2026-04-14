@@ -1,6 +1,6 @@
 # Claude Code Plugins
 
-Personal Claude Code plugin collection for TypeScript CLI development and coding style enforcement.
+Personal Claude Code plugin collection.
 
 ## Plugins
 
