@@ -22,7 +22,7 @@ Add the marketplace and install plugins from within Claude Code:
 Or from the CLI:
 
 ```bash
-claude plugin install github:artorias/claude-code-dev-plugins
+claude plugin install github:artoriaschan/claude-code-dev-plugins
 ```
 
 > **Note:** For `code-style` plugin, link rules after installation:
