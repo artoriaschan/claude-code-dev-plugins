@@ -1,0 +1,24 @@
+{
+  "PostToolUse": [
+    {
+      "matcher": "Write|Edit",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "A .ts file was just modified. Check if it appears to be a TypeScript CLI project file (part of a monorepo with Commander/Zod/Chalk). If yes, verify: single quotes used, 4-space indentation, .js extension in relative imports, no banned dependencies (ts-node, jest, inquirer, chalk 4, oclif, Joi). Report any violations briefly."
+        }
+      ]
+    }
+  ],
+  "SubagentStop": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "A subagent just completed. Check if it generated or modified any TypeScript CLI project files. If yes, verify the generated code follows coding-plans-statusline conventions: ESM only, single quotes, 4-space indent, .spec.ts test naming, barrel exports, Commander+Zod+Chalk 5.x usage. Report any convention violations."
+        }
+      ]
+    }
+  ]
+}

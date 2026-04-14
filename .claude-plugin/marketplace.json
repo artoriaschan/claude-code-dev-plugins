@@ -1,0 +1,53 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-plugins",
+  "description": "Personal Claude Code plugin collection for TypeScript CLI development workflows",
+  "owner": {
+    "name": "artorias"
+  },
+  "plugins": [
+    {
+      "name": "cli-builder",
+      "description": "TypeScript CLI project scaffolding and code style enforcement. Interactively generates monorepo projects (pnpm + Commander + Zod + Chalk 5.x + tsup + Vitest + @clack/prompts), validates code conventions against coding-plans-statusline standards, and generates individual command templates with proper structure.",
+      "category": "development",
+      "source": "./plugins/cli-builder",
+      "tags": [
+        "cli",
+        "scaffold",
+        "typescript",
+        "code-style",
+        "monorepo",
+        "commander",
+        "codegen",
+        "eslint",
+        "prettier"
+      ],
+      "components": {
+        "skills": [
+          {
+            "name": "cli-create",
+            "description": "Interactive CLI project creation — guides users through project configuration and generates complete monorepo scaffolds with TypeScript ESM, Commander, Zod, Chalk, and full tooling (ESLint, Prettier, Husky, Changesets)"
+          },
+          {
+            "name": "cli-check",
+            "description": "Code style validation — checks existing TypeScript CLI projects against coding-plans-statusline conventions, reports ESM compliance, dependency audit, barrel exports, test naming, and more"
+          },
+          {
+            "name": "cli-add-command",
+            "description": "Command template generation — creates individual command files with Commander definition, Zod validation schema, Chalk output, barrel exports, and test stubs"
+          }
+        ],
+        "agents": [
+          {
+            "name": "cli-validator",
+            "description": "Automatic code compliance checker — validates generated code against conventions after scaffolding or modification, generates structured reports with severity-graded findings"
+          }
+        ],
+        "hooks": [
+          "PostToolUse (Write/Edit) — checks .ts files for convention violations on save",
+          "SubagentStop — verifies generated code follows conventions after subagent execution"
+        ]
+      }
+    }
+  ]
+}

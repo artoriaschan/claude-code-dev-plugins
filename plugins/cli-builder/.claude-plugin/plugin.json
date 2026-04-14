@@ -1,0 +1,8 @@
+{
+  "name": "cli-builder",
+  "version": "0.1.0",
+  "description": "CLI tool builder for TypeScript — interactive scaffolding, code style checking, and command template generation following coding-plans-statusline conventions",
+  "author": {
+    "name": "artorias"
+  }
+}
