@@ -1,4 +1,4 @@
-# Claude Code Plugins
+# Claude Code Dev Plugins
 
 Personal Claude Code plugin collection.
 
