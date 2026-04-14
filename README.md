@@ -1,6 +1,6 @@
 # Claude Code Plugins
 
-Personal Claude Code plugin collection for TypeScript CLI development workflows.
+Personal Claude Code plugin collection for TypeScript CLI development and coding style enforcement.
 
 ## Plugins
 
@@ -47,6 +47,8 @@ See [docs/development-workflow.md](docs/development-workflow.md) for detailed wo
 | Project overview and goals | [docs/project-overview.md](docs/project-overview.md) |
 | Plugin structure and manifest format | [docs/plugin-structure.md](docs/plugin-structure.md) |
 | Plugin development workflow | [docs/development-workflow.md](docs/development-workflow.md) |
+| Installation and usage | [docs/installation.md](docs/installation.md) |
+| Coding conventions | [docs/coding-conventions.md](docs/coding-conventions.md) |
 
 ## License
 
