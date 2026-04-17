@@ -3,8 +3,37 @@
 ## Creating a New Plugin
 
 1. Create directory under `plugins/<name>/`
-2. Add skills, agents as needed
-3. If shipping rules, create `install.sh` to copy rules to `~/.claude/rules/`
+2. Create `.claude-plugin/plugin.json` with name, version, description
+3. Add skills, agents as needed
+4. If shipping rules, create `install.sh` to copy rules to `~/.claude/rules/`
+5. Register in `.claude-plugin/marketplace.json`
+
+## Registering a Plugin
+
+After creating or modifying a plugin, ensure it's registered in the marketplace manifest:
+
+Edit `.claude-plugin/marketplace.json` and add an entry:
+
+```json
+{
+  "plugins": {
+    "plugin-name": {
+      "path": "./plugins/plugin-name"
+    }
+  }
+}
+```
+
+## Versioning
+
+Bump the `version` field in `.claude-plugin/plugin.json` after each meaningful change:
+
+```json
+{
+  "name": "plugin-name",
+  "version": "0.1.0"
+}
+```
 
 ## Creating a New Skill
 
@@ -24,64 +53,44 @@
 
 ### Add Local Marketplace
 
-Add the project directory as a local marketplace source:
-
 ```bash
 /plugin marketplace add ./my-marketplace
 ```
 
-Or add via GitHub repository for team collaboration:
-
-```bash
-/plugin marketplace add artoriaschan/claude-code-dev-plugins
-```
-
-### Install Plugins
-
-After adding the marketplace, install plugins individually:
+### Install and Activate
 
 ```bash
 /plugin install cli-builder
 /plugin install code-style
+/reload-plugins
 ```
 
-Or with explicit marketplace qualifier:
+### Verify Installation
 
-```bash
-/plugin install cli-builder@artoriaschan-claude-code-dev-plugins
-```
+Run `/plugin` and check the **Installed** tab to confirm the plugin is loaded. For skills, verify auto-trigger by performing the expected action (e.g., editing a `.ts` file should trigger `ts-style`).
 
-For `code-style` plugin, also run the install script to copy rules:
+### Code-Style Rules
+
+For `code-style` plugin, copy rules to `~/.claude/rules/`:
 
 ```bash
 bash plugins/code-style/install.sh
 ```
 
-### Activate Changes
+### Iterative Changes
 
-After installing, enabling, or disabling plugins during a session, activate without restart:
+After modifying skills or agents:
+1. Clear the cache: `rm -rf ~/.claude/plugins/cache`
+2. Run `/reload-plugins` (or restart Claude Code)
+3. Re-test the trigger action
 
-```bash
-/reload-plugins
-```
-
-### Remove Local Marketplace
+### Cleanup
 
 After testing, remove the local marketplace source:
 
 ```bash
 /plugin marketplace remove ./my-marketplace
 ```
-
-### Clear Plugin Cache
-
-If skills are not appearing after updates:
-
-```bash
-rm -rf ~/.claude/plugins/cache
-```
-
-Then restart Claude Code and reinstall the plugin.
 
 ## Documentation Maintenance
 
