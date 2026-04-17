@@ -2,7 +2,7 @@
 
 ## What Is This Project
 
-A personal plugin management project for Claude Code. It hosts custom plugins that extend Claude Code's capabilities for development workflows.
+A Claude Code plugin marketplace. It hosts custom plugins for personal development workflows, distributed via the Claude Code marketplace under `artoriaschan/claude-code-dev-plugins`.
 
 ## Goals
 
@@ -24,8 +24,8 @@ Skills and agents are auto-discovered from standard directories. Manifest paths 
 
 Coding conventions for generated projects are captured as rules and enforced automatically — not documented and forgotten.
 
-## Future Plans
+## Status
 
-- Add more plugins as development needs arise
-- Plugins published to Claude Code marketplace under `artoriaschan/claude-code-dev-plugins`
+- Plugins published to Claude Code marketplace: `artoriaschan/claude-code-dev-plugins`
 - Lightweight skill definitions with detailed rules in `rules/` to avoid content duplication
+- Add more plugins as development needs arise

@@ -2,13 +2,13 @@
 
 ## Installing Plugins
 
-### Via Claude Code /plugin Command
+### Via Claude Code Marketplace
 
 ```bash
-/plugin install --plugin-dir /home/artorias/workspaces/person/claude-code-plugins
+/plugin marketplace add artoriaschan/claude-code-dev-plugins
+/plugin install cli-builder
+/plugin install code-style
 ```
-
-This loads all plugins from this project into your Claude Code instance.
 
 ### Manual Rule Installation
 
@@ -42,7 +42,7 @@ Skills and agents are auto-discovered — no manual setup required.
 
 ### cli-builder
 
-TypeScript CLI project scaffolding and code style checking.
+TypeScript CLI project scaffolding with simple mode support.
 
 See [`plugins/cli-builder/README.md`](../plugins/cli-builder/README.md) for details.
 
