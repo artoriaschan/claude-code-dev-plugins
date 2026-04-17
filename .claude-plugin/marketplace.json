@@ -3,7 +3,8 @@
   "name": "claude-code-dev-plugins",
   "description": "Personal Claude Code plugin collection for TypeScript CLI development workflows",
   "owner": {
-    "name": "artorias"
+    "name": "artoriaschan",
+    "email": "dalecracker@gmail.com"
   },
   "plugins": [
     {
@@ -80,6 +81,41 @@
         "hooks": [
           "PostToolUse (Write/Edit) — auto-format TS/JS with prettier, SCSS with stylelint, auto-fix ESLint issues, type-check with tsc",
           "PreToolUse (Write) — block file writes exceeding 800 lines"
+        ]
+      }
+    },
+    {
+      "name": "marketplace-generator",
+      "description": "Generate complete Claude Code plugin marketplace projects with guided workflows and example plugins. Provides marketplace-create skill for project creation and marketplace-dev-workflow skill for enforcing development standards.",
+      "category": "development",
+      "source": "./plugins/marketplace-generator",
+      "tags": [
+        "marketplace",
+        "plugin",
+        "scaffold",
+        "codegen",
+        "workflow"
+      ],
+      "components": {
+        "skills": [
+          {
+            "name": "marketplace-create",
+            "description": "Guide users through creating a complete Claude Code plugin marketplace project from scratch — Collect, Generate, Document, Validate phases"
+          },
+          {
+            "name": "marketplace-dev-workflow",
+            "description": "Enforce development workflow standards when developing, adding, or modifying plugins in a marketplace project"
+          },
+          {
+            "name": "marketplace-format",
+            "description": "Scan, diagnose, and batch-fix format inconsistencies in existing plugin marketplace projects"
+          }
+        ],
+        "agents": [
+          {
+            "name": "marketplace-validator",
+            "description": "Validate a plugin marketplace project for structural integrity, consistency, and compliance with development standards"
+          }
         ]
       }
     }

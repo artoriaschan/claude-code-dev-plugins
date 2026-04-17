@@ -1,0 +1,9 @@
+{
+  "name": "marketplace-generator",
+  "version": "0.1.0",
+  "description": "Generate complete Claude Code plugin marketplace projects with guided workflows and example plugins",
+  "author": {
+    "name": "artoriaschan",
+    "email": "dalecracker@gmail.com"
+  }
+}

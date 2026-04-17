@@ -1,0 +1,9 @@
+{
+  "name": "example-plugin",
+  "version": "0.1.0",
+  "description": "Example plugin demonstrating all component types: skills, agents, hooks, and rules",
+  "author": {
+    "name": "artoriaschan",
+    "email": "dalecracker@gmail.com"
+  }
+}

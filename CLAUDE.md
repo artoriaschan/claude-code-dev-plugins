@@ -20,6 +20,7 @@ This project manages Claude Code plugins for personal development workflows. Eac
 |--------|-----------|---------|
 | `cli-builder` | 2 skills | TypeScript CLI project scaffolding (with simple mode) and command template generation |
 | `code-style` | 5 skills, 1 agent, 11 rules | Enforce personal coding style conventions for AI-generated code |
+| `marketplace-generator` | 3 skills, 1 agent | Generate complete Claude Code plugin marketplace projects with guided workflows and format existing projects |
 
 ## Key Conventions
 
