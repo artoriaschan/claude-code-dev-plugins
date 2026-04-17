@@ -1,8 +1,9 @@
 {
   "name": "code-style",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Enforce personal coding style conventions for AI-generated code across TypeScript, React, Vue, and SCSS projects.",
   "author": {
-    "name": "artoriaschan"
+    "name": "artoriaschan",
+    "email": "dalecracker@gmail.com"
   }
 }

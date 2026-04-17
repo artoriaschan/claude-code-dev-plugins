@@ -8,6 +8,7 @@ Personal Claude Code plugin collection.
 |--------|---------|---------|
 | **cli-builder** | TypeScript CLI project scaffolding (with simple mode) and command templates | [plugins/cli-builder/README.md](plugins/cli-builder/README.md) |
 | **code-style** | Coding style conventions for TypeScript, React, Vue, and SCSS | [plugins/code-style/README.md](plugins/code-style/README.md) |
+| **marketplace-generator** | Generate complete Claude Code plugin marketplace projects with guided workflows and format existing projects | [plugins/marketplace-generator/README.md](plugins/marketplace-generator/README.md) |
 
 ## Quick Start
 

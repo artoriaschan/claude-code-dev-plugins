@@ -77,10 +77,6 @@
             "name": "code-style-reviewer",
             "description": "Deep code style review agent — checks naming, import order, file organization, comments, error handling, and TypeScript compliance before commits"
           }
-        ],
-        "hooks": [
-          "PostToolUse (Write/Edit) — auto-format TS/JS with prettier, SCSS with stylelint, auto-fix ESLint issues, type-check with tsc",
-          "PreToolUse (Write) — block file writes exceeding 800 lines"
         ]
       }
     },

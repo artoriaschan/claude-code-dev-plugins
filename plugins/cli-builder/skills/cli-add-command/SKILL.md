@@ -1,7 +1,6 @@
 ---
 name: cli-add-command
 description: Activate when the user requests adding a command to an existing TypeScript CLI project. Triggers: "add a command", "new subcommand", "create CLI command", "add command to CLI". Generates command file with Commander, Zod, Chalk, updates barrel exports and bootstrap.
-version: 0.1.0
 ---
 
 # CLI Command Template Generator

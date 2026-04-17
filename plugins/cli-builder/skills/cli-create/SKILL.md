@@ -1,7 +1,6 @@
 ---
 name: cli-create
 description: Activate when the user requests creating a new TypeScript CLI project from scratch. Triggers: "create a CLI tool", "scaffold a CLI project", "new CLI monorepo", "bootstrap TypeScript CLI". Generates a pnpm-based project with Commander, Zod, Chalk, and full tooling.
-version: 0.1.0
 ---
 
 # CLI Project Creator
