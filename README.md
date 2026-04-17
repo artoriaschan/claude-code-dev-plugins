@@ -19,12 +19,6 @@ Add the marketplace and install plugins from within Claude Code:
 /plugin install code-style
 ```
 
-Or from the CLI:
-
-```bash
-claude plugin install github:artoriaschan/claude-code-dev-plugins
-```
-
 > **Note:** For `code-style` plugin, install rules after installation:
 >
 > ```bash
@@ -48,7 +42,6 @@ See [docs/development-workflow.md](docs/development-workflow.md) for detailed wo
 | Plugin structure and manifest format | [docs/plugin-structure.md](docs/plugin-structure.md) |
 | Plugin development workflow | [docs/development-workflow.md](docs/development-workflow.md) |
 | Installation and usage | [docs/installation.md](docs/installation.md) |
-| Coding conventions | [docs/coding-conventions.md](docs/coding-conventions.md) |
 
 ## License
 

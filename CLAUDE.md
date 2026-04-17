@@ -26,7 +26,6 @@ curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugin
 | Plugin directory layout and manifest format | `docs/plugin-structure.md` |
 | How to create plugins, skills, agents | `docs/development-workflow.md` |
 | How to install and use plugins | `docs/installation.md` |
-| Coding conventions enforced by plugins | `docs/coding-conventions.md` |
 
 ## Active Plugins
 
