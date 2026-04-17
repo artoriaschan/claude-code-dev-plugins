@@ -12,8 +12,7 @@ This project manages Claude Code plugins for personal development workflows. Eac
 |------|-----------|
 | What is this project and why does it exist | `docs/project-overview.md` |
 | Plugin directory layout and manifest format | `docs/plugin-structure.md` |
-| How to create plugins, skills, agents | `docs/development-workflow.md` |
-| How to install and use plugins | See `README.md` Quick Start |
+| How to develop plugins | `docs/development-workflow.md` |
 
 ## Active Plugins
 
