@@ -1,4 +1,5 @@
 ---
+name: "ts-style"
 description: "TypeScript 风格指南。在编辑 .ts/.js/.tsx/.jsx 文件时触发。"
 trigger: "编辑 .ts .tsx .js .jsx 文件"
 argument-hint: "[可选：具体主题如 'types'、'imports'、'error-handling']"

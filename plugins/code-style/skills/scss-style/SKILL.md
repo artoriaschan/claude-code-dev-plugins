@@ -1,4 +1,5 @@
 ---
+name: "scss-style"
 description: "SCSS 命名约定、嵌套限制、变量 tokens 和文件组织风格指南。在编辑 .scss/.sass 文件时触发。"
 trigger: "编辑 .scss .sass 文件、SCSS 样式"
 argument-hint: "[可选：具体主题如 'naming'、'nesting'、'tokens']"

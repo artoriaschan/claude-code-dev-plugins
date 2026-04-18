@@ -1,4 +1,5 @@
 ---
+name: "react-style"
 description: "React 组件模式、hooks 使用、error boundaries 和 props 类型风格指南。在编辑 .tsx/.jsx 文件时触发。"
 trigger: "编辑 .tsx .jsx 文件、React 组件"
 argument-hint: "[可选：具体主题如 'hooks'、'error-boundary'、'props']"

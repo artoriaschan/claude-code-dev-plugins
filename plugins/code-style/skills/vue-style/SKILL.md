@@ -1,4 +1,5 @@
 ---
+name: "vue-style"
 description: "Vue composition API、组件模式、props/emits 类型定义和错误处理风格指南。在编辑 .vue 文件时触发。"
 trigger: "编辑 .vue 文件、Vue 组件"
 argument-hint: "[可选：具体主题如 'composables'、'props'、'error-handling']"
