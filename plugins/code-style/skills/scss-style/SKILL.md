@@ -1,25 +1,25 @@
 ---
-description: "SCSS style guide for naming conventions, nesting limits, variable tokens, and file organization. Triggers when editing .scss/.sass files."
-trigger: "Edit .scss .sass files, SCSS styles"
-argument-hint: "[optional: specific topic like 'naming', 'nesting', 'tokens']"
+description: "SCSS 命名约定、嵌套限制、变量 tokens 和文件组织风格指南。在编辑 .scss/.sass 文件时触发。"
+trigger: "编辑 .scss .sass 文件、SCSS 样式"
+argument-hint: "[可选：具体主题如 'naming'、'nesting'、'tokens']"
 allowed-tools: ["Read", "Grep", "Glob"]
 ---
 
-# SCSS Style
+# SCSS 风格
 
-Enforces strict SCSS coding conventions for AI-generated code.
+为 AI 生成的代码强制 SCSS 编码约定。
 
-## When to Activate
+## 何时激活
 
-- Editing `.scss`, `.sass` files
-- User calls `/scss-style`
-- Generating SCSS styles
+- 编辑 `.scss`、`.sass` 文件
+- 用户调用 `/scss-style`
+- 生成 SCSS 样式
 
-## Rules
+## 规则
 
-See [rules/scss/coding-style.md](../../rules/scss/coding-style.md) for full details including:
+完整详情参考 [rules/scss/coding-style.md](../../rules/scss/coding-style.md)，包括：
 
-- **Naming**: Classes/variables/mixins kebab-case
-- **Nesting**: Maximum 3 levels deep, use `&` for modifiers
-- **Organization**: Tokens → Mixins → Component styles
-- **Variables**: Use CSS custom properties for design tokens
+- **命名**：类/变量/mixins 使用 kebab-case
+- **嵌套**：最多 3 层，使用 `&` 表示修饰符
+- **组织**：Tokens → Mixins → 组件样式
+- **变量**：使用 CSS 自定义属性作为设计 tokens

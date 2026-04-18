@@ -1,8 +1,8 @@
-# Generated Project Example
+# 生成项目示例
 
-This file shows an example of a complete generated project for the "coding-status" CLI.
+此文件展示了一个完整的生成项目示例 — "coding-status" CLI。
 
-## User Input
+## 用户输入
 
 ```
 projectName: coding-status
@@ -28,7 +28,7 @@ commands:
 authorName: artorias
 ```
 
-## Generated Structure
+## 生成的结构
 
 ```
 coding-status/
@@ -66,7 +66,7 @@ coding-status/
 └── .gitignore
 ```
 
-## Example Command (src/commands/init.ts)
+## 命令示例（src/commands/init.ts）
 
 ```typescript
 import { Command } from 'commander'

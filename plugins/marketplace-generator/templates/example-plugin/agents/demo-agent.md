@@ -1,31 +1,31 @@
 ---
 name: demo-agent
-description: Example agent demonstrating autonomous task execution patterns. Use when user asks for agent structure reference.
+description: 演示自主任务执行模式的示例 agent。当用户询问 agent 结构参考时使用。
 model: inherit
 color: blue
 ---
 
 # Demo Agent
 
-This is an example agent demonstrating autonomous task execution.
+这是一个演示自主任务执行的示例 agent。
 
-## When to Use
+## 使用时机
 
-- User asks for an example of how agents work
-- User wants to understand agent structure
-- User needs a reference for creating their own agents
+- 用户询问 agent 如何工作
+- 用户想了解 agent 的结构
+- 用户需要创建自己的 agent 的参考
 
 <example>
-user: "How do I create an agent?"
-assistant: [triggers demo-agent to show agent structure]
+user: "如何创建一个 agent？"
+assistant: [触发 demo-agent 来展示 agent 结构]
 </example>
 
-## Instructions
+## 说明
 
-This agent serves as a template for plugin developers. Study its structure:
+此 agent 可作为插件开发者的模板。研究其结构：
 
-1. **Frontmatter**: Defines name, description, model, and color
-2. **Body**: Provides detailed instructions and context
-3. **Tools**: Configured automatically based on task needs
+1. **Frontmatter**：定义 name、description、model 和 color
+2. **Body**：提供详细的说明和上下文
+3. **Tools**：根据任务需求自动配置
 
-Follow this pattern when creating your own agents in marketplace plugins.
+在 marketplace 插件中创建自己的 agent 时请遵循此模式。

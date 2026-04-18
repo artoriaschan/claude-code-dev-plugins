@@ -1,48 +1,48 @@
-# docs/project-structure.md Template
+# docs/project-structure.md 模板
 
-Replace `<marketplace-name>` with actual value.
+将 `<marketplace-name>` 替换为实际值。
 
 ```markdown
-# Project Structure
+# 项目结构
 
-<marketplace-name> is a Claude Code plugin marketplace project.
+<marketplace-name> 是一个 Claude Code 插件 marketplace 项目。
 
 ## Directory Layout
 
 ```
 <marketplace-name>/
 ├── .claude-plugin/
-│   └── marketplace.json    # Registry of all plugins in this marketplace
-├── CLAUDE.md               # Project context for Claude Code
-├── README.md               # User-facing documentation
+│   └── marketplace.json    # 此 marketplace 中所有插件的注册表
+├── CLAUDE.md               # Claude Code 的项目上下文
+├── README.md               # 面向用户的文档
 ├── docs/
-│   ├── project-structure.md # This file
-│   └── plugins/            # Per-plugin detailed documentation
+│   ├── project-structure.md # 此文件
+│   └── plugins/            # 每个插件的详细文档
 └── plugins/
-    └── <plugin-name>/      # Individual plugins
+    └── <plugin-name>/      # 各个插件
         ├── .claude-plugin/
-        │   └── plugin.json # Plugin manifest
-        ├── skills/         # Auto-activating skills (if any)
-        ├── agents/         # Subagent definitions (if any)
-        ├── hooks/          # Event handlers (if any)
-        ├── rules/          # Custom rules (if any)
-        └── README.md       # Plugin documentation
+        │   └── plugin.json # 插件清单
+        ├── skills/         # 自动激活的 skills（如有）
+        ├── agents/         # 子代理定义（如有）
+        ├── hooks/          # 事件处理器（如有）
+        ├── rules/          # 自定义规则（如有）
+        └── README.md       # 插件文档
 ```
 
 ## Key Files
 
 ### .claude-plugin/marketplace.json
-The marketplace configuration file. Contains:
-- `name`: Marketplace name (kebab-case)
-- `version`: Semver version
-- `description`: Purpose statement
-- `plugins[]`: Array of { name, path } objects pointing to each plugin
+marketplace 配置文件。包含：
+- `name`：Marketplace 名称（kebab-case）
+- `version`：Semver 版本
+- `description`：用途说明
+- `plugins[]`：指向每个插件的 { name, path } 对象数组
 
 ### CLAUDE.md
-Project-level context for Claude Code. Links to plugin documentation.
+项目级 Claude Code 上下文。链接到插件文档。
 
 ## How Plugins Work
-Each plugin in `plugins/` is a self-contained Claude Code plugin with its own manifest.
-The marketplace.json file at the root registers all plugins for distribution.
-Users can install the entire marketplace and selectively enable individual plugins.
+`plugins/` 中的每个插件都是一个独立的 Claude Code 插件，拥有自己的清单。
+根目录的 marketplace.json 文件注册所有插件以供分发。
+用户可以安装整个 marketplace 并选择性地启用各个插件。
 ```

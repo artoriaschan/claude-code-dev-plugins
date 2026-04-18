@@ -1,31 +1,31 @@
 # marketplace-generator
 
-Generate complete Claude Code plugin marketplace projects with guided workflows and example plugins.
+生成完整的 Claude Code 插件市场项目，包含引导式工作流和示例插件。
 
-## What It Does
+## 功能
 
-Provides three skills and one agent for managing Claude Code plugin marketplaces:
-- `marketplace-create` — Guide users through creating a complete marketplace project from scratch (Collect, Generate, Document, Validate phases)
-- `marketplace-dev-workflow` — Enforce development workflow standards when adding, updating, or removing plugins
-- `marketplace-format` — Scan, diagnose, and batch-fix format inconsistencies in existing marketplace projects
-- `marketplace-validator` agent — Validate marketplace structure and consistency
+提供三个技能和一个代理，用于管理 Claude Code 插件市场：
+- `marketplace-create` — 引导用户从零开始创建完整的市场项目（收集、生成、文档、验证四个阶段）
+- `marketplace-dev-workflow` — 在添加、更新或移除插件时强制执行开发工作流标准
+- `marketplace-format` — 扫描、诊断并批量修复现有市场项目中的格式不一致问题
+- `marketplace-validator` 代理 — 验证市场结构和一致性
 
-## Usage
+## 使用
 
-Trigger phrases:
-- "create a plugin marketplace", "set up a new marketplace" — marketplace-create
-- "add a new plugin", "update the X plugin" — marketplace-dev-workflow
-- "format marketplace", "fix plugin structure" — marketplace-format
+触发短语：
+- "create a plugin marketplace"、"set up a new marketplace" — marketplace-create
+- "add a new plugin"、"update the X plugin" — marketplace-dev-workflow
+- "format marketplace"、"fix plugin structure" — marketplace-format
 
-## Components
+## 组件
 
-| Type | Name | Purpose |
-|------|------|---------|
-| Skill | `marketplace-create` | Guide users through creating a complete marketplace project from scratch |
-| Skill | `marketplace-dev-workflow` | Enforce development workflow when adding, updating, or removing plugins |
-| Skill | `marketplace-format` | Scan, diagnose, and batch-fix format inconsistencies in existing projects |
-| Agent | `marketplace-validator` | Validate marketplace structure and consistency |
+| 类型 | 名称 | 用途 |
+|------|------|------|
+| Skill | `marketplace-create` | 引导用户从零创建完整的市场项目 |
+| Skill | `marketplace-dev-workflow` | 添加、更新或移除插件时强制执行开发工作流 |
+| Skill | `marketplace-format` | 扫描、诊断并批量修复现有项目的格式不一致 |
+| Agent | `marketplace-validator` | 验证市场结构和一致性 |
 
-## Authors
+## 作者
 
 artoriaschan (dalecracker@gmail.com)

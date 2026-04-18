@@ -1,23 +1,23 @@
-# CLAUDE.md Template
+# CLAUDE.md 模板
 
-Replace placeholders with actual values. Add one plugin link line per plugin.
+将占位符替换为实际值。为每个插件添加一行链接。
 
 ```markdown
 # CLAUDE.md
 
-This is a Claude Code plugin marketplace project.
+这是一个 Claude Code 插件 marketplace 项目。
 
 ## Project Structure
-- `.claude-plugin/marketplace.json` — Marketplace configuration and plugin registry
-- `plugins/` — All plugins, each with its own `.claude-plugin/plugin.json`
-- `docs/` — Project and plugin documentation
-  - `docs/project-structure.md` — Overall project layout and directory purposes
-  - `docs/plugins/` — Detailed documentation for each plugin
+- `.claude-plugin/marketplace.json` — Marketplace 配置和插件注册表
+- `plugins/` — 所有插件，每个都有各自的 `.claude-plugin/plugin.json`
+- `docs/` — 项目和插件文档
+  - `docs/project-structure.md` — 整体项目布局和目录用途
+  - `docs/plugins/` — 每个插件的详细文档
 
 ## Plugins
-<!-- Plugin list is maintained here. Add/remove entries as plugins change. -->
+<!-- 插件列表在此维护。添加/删除插件时相应更新。 -->
 - [<plugin-name>](docs/plugins/<plugin-name>.md) — <description>
 
 ## Project Structure
-See [docs/project-structure.md](docs/project-structure.md) for the full project layout and directory purposes.
+完整项目布局和目录用途参考 [docs/project-structure.md](docs/project-structure.md)。
 ```

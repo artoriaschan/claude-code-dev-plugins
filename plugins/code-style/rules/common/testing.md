@@ -1,51 +1,51 @@
-# Common Testing Standards
+# 通用测试标准
 
-> Testing principles applicable to all projects.
-> Note: The global rules in `~/.claude/rules/zh/testing.md` define the full testing standards. This file provides a condensed reference for style-related testing requirements.
+> 适用于所有项目的测试原则。
+> 注意：`~/.claude/rules/zh/testing.md` 中的全局规则定义了完整的测试标准。本文件提供与风格相关的测试要求的精简参考。
 
-## Minimum Test Coverage: 80%
+## 最低测试覆盖率：80%
 
-All projects should maintain at least 80% code coverage.
+所有项目应保持至少 80% 的代码覆盖率。
 
-## Test Structure (AAA Pattern)
+## 测试结构（AAA 模式）
 
-Use Arrange-Act-Assert structure:
+使用 Arrange-Act-Assert 结构：
 
 ```typescript
 test('returns empty array when no markets match query', () => {
-  // Arrange
+  // Arrange（准备）
   const query = 'nonexistent'
   const markets = createMockMarkets()
 
-  // Act
+  // Act（执行）
   const results = filterMarkets(markets, query)
 
-  // Assert
+  // Assert（断言）
   expect(results).toEqual([])
 })
 ```
 
-## Test Naming
+## 测试命名
 
-Use descriptive names that explain the behavior:
+使用描述性的名称来解释行为：
 
 ```typescript
-// GOOD: Describes the scenario
+// 好：描述场景
 test('throws error when API key is missing', () => {})
 test('falls back to substring search when Redis is unavailable', () => {})
 
-// BAD: Vague
+// 差：模糊
 test('test 1', () => {})
 test('should work', () => {})
 ```
 
-## Test Types
+## 测试类型
 
-- **Unit tests**: Single functions, utilities, components
-- **Integration tests**: API endpoints, database operations
-- **E2E tests**: Critical user flows
+- **单元测试**：单个函数、工具函数、组件
+- **集成测试**：API 端点、数据库操作
+- **E2E 测试**：关键用户流程
 
-## Test Location
+## 测试位置
 
-- Tests go in `__tests__/` at project root level
-- Or co-located with source file as `file.test.ts`
+- 测试放在项目根级别的 `__tests__/` 目录中
+- 或与源文件放在一起，命名为 `file.test.ts`

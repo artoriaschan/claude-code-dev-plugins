@@ -5,25 +5,25 @@ paths:
   - "**/*.js"
   - "**/*.jsx"
 ---
-# TypeScript Coding Style
+# TypeScript 编码风格
 
-> This file extends [common/coding-style.md](../common/coding-style.md) with TypeScript-specific content.
+> 本文件在 [common/coding-style.md](../common/coding-style.md) 的基础上扩展了 TypeScript 特定内容。
 
-## Import Order
+## 导入顺序
 
-Imports MUST follow this exact order, separated by blank lines:
+导入必须遵循以下确切顺序，用空行分隔：
 
-1. **Core framework libraries** (react, vue, etc.)
-2. **Third-party libraries** (lodash, axios, etc.)
-3. **Internal modules** — sorted by path distance (nearest first):
-   - Sibling directory imports (`./`)
-   - Parent directory imports (`../`)
-   - Deeper parent directory (`../../`, etc.)
-4. **Type imports** (if using `import type`)
-5. **CSS/SCSS imports**
+1. **核心框架库**（react、vue 等）
+2. **第三方库**（lodash、axios 等）
+3. **内部模块** — 按路径距离排序（最近的优先）：
+   - 同级目录导入（`./`）
+   - 父级目录导入（`../`）
+   - 更深层父级目录（`../../` 等）
+4. **类型导入**（如果使用 `import type`）
+5. **CSS/SCSS 导入**
 
 ```typescript
-// CORRECT: Proper import order
+// 正确：正确的导入顺序
 import React, { useState, useMemo } from 'react'
 import { Route } from 'react-router-dom'
 
@@ -40,7 +40,7 @@ import './user-profile.scss'
 ```
 
 ```typescript
-// WRONG: Random order
+// 错误：随机顺序
 import { UserCard } from './user-card'
 import React from 'react'
 import './user-profile.scss'
@@ -49,19 +49,19 @@ import type { User } from '../types/user'
 import { formatDate } from '../utils/date-utils'
 ```
 
-## Types and Interfaces
+## 类型和接口
 
-### Public APIs
+### 公共 API
 
-Add explicit types to exported functions, shared utilities, and public methods. Let TypeScript infer local variable types.
+为导出的函数、共享工具函数和公共方法添加显式类型。让 TypeScript 推断局部变量类型。
 
 ```typescript
-// WRONG: No types on exported function
+// 错误：导出函数没有类型
 export function formatUser(user) {
   return `${user.firstName} ${user.lastName}`
 }
 
-// CORRECT: Explicit types on public APIs
+// 正确：公共 API 上的显式类型
 interface User {
   firstName: string
   lastName: string
@@ -72,11 +72,11 @@ export function formatUser(user: User): string {
 }
 ```
 
-### Interfaces vs Type Aliases
+### 接口 vs 类型别名
 
-- Use `interface` for object shapes that may be extended
-- Use `type` for unions, intersections, tuples, mapped types
-- Prefer string literal unions over `enum`
+- 使用 `interface` 定义可能被扩展的对象形状
+- 使用 `type` 定义联合类型、交叉类型、元组、映射类型
+- 优先使用字符串字面量联合类型而不是 `enum`
 
 ```typescript
 interface User {
@@ -88,19 +88,19 @@ type UserRole = 'admin' | 'member'
 type UserWithRole = User & { role: UserRole }
 ```
 
-### Avoid `any`
+### 避免 `any`
 
-- Avoid `any` in application code
-- Use `unknown` for external input, then narrow safely
-- Use generics when type depends on caller
+- 在应用代码中避免使用 `any`
+- 对外部输入使用 `unknown`，然后安全地收窄类型
+- 当类型依赖于调用者时使用泛型
 
 ```typescript
-// WRONG: any removes type safety
+// 错误：any 消除了类型安全
 function getErrorMessage(error: any) {
   return error.message
 }
 
-// CORRECT: unknown forces safe narrowing
+// 正确：unknown 强制安全收窄
 function getErrorMessage(error: unknown): string {
   if (error instanceof Error) {
     return error.message
@@ -109,9 +109,9 @@ function getErrorMessage(error: unknown): string {
 }
 ```
 
-## JavaScript Files
+## JavaScript 文件
 
-In `.js`/`.jsx` files, use JSDoc for type clarity:
+在 `.js`/`.jsx` 文件中，使用 JSDoc 提供类型清晰度：
 
 ```javascript
 /**
@@ -123,11 +123,11 @@ export function formatUser(user) {
 }
 ```
 
-## File Structure
+## 文件结构
 
-### Directory Organization
+### 目录组织
 
-Split by type, not by feature:
+按类型拆分，而不是按功能：
 
 ```
 src/
@@ -148,21 +148,21 @@ src/
     └── globals.scss
 ```
 
-### Utility Files
+### 工具函数文件
 
-Split `utils/` by feature/domain:
+按功能/域拆分 `utils/`：
 
 ```
 utils/
-├── string-utils.ts     # String manipulation helpers
-├── date-utils.ts       # Date formatting helpers
-├── api-utils.ts        # API request helpers
-└── validation-utils.ts # Form validation helpers
+├── string-utils.ts     # 字符串操作工具函数
+├── date-utils.ts       # 日期格式化工具函数
+├── api-utils.ts        # API 请求工具函数
+└── validation-utils.ts # 表单验证工具函数
 ```
 
-### Test Location
+### 测试位置
 
-Tests go in `__tests__/` at the project root:
+测试放在项目根级别的 `__tests__/` 目录中：
 
 ```
 project/
@@ -174,32 +174,32 @@ project/
     └── string-utils.test.ts
 ```
 
-## Immutability
+## 不可变性
 
-Use spread operator for immutable updates:
+使用展开运算符进行不可变更新：
 
 ```typescript
-// WRONG: Mutation
+// 错误：就地修改
 function updateUser(user: User, name: string): User {
   user.name = name
   return user
 }
 
-// CORRECT: Spread creates new object
+// 正确：展开运算符创建新对象
 function updateUser(user: Readonly<User>, name: string): User {
   return { ...user, name }
 }
 ```
 
-## Error Handling
+## 错误处理
 
-### Error Types
+### 错误类型
 
-- **Web projects**: Use native `Error`
-- **CLI/Tool projects**: Use custom Error types
+- **Web 项目**：使用原生 `Error`
+- **CLI/工具项目**：使用自定义错误类型
 
 ```typescript
-// CLI project: custom error
+// CLI 项目：自定义错误
 class AppError extends Error {
   constructor(
     public code: string,
@@ -212,22 +212,22 @@ class AppError extends Error {
   }
 }
 
-// Usage
+// 使用
 throw new AppError(
   'FILE_NOT_FOUND',
-  `The file "${filePath}" does not exist. Check the path and try again.`,
+  `文件 "${filePath}" 不存在。请检查路径后重试。`,
   { filePath, operation: 'read' },
   originalError
 )
 ```
 
-### Logger Usage
+### 日志使用
 
 ```typescript
-// Web frontend: console is sufficient
+// Web 前端：console 即可
 console.error('Failed to load user profile:', error)
 
-// Node.js backend: structured logger (pino)
+// Node.js 后端：结构化日志（pino）
 import pino from 'pino'
 const logger = pino()
 
@@ -241,5 +241,5 @@ logger.error({
 
 ## Console
 
-- No `console.log` in production code
-- Use proper logging libraries instead
+- 生产代码中不要使用 `console.log`
+- 使用适当的日志库代替

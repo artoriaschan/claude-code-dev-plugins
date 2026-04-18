@@ -3,13 +3,13 @@ paths:
   - "**/*.tsx"
   - "**/*.jsx"
 ---
-# React Coding Style
+# React 编码风格
 
-> This file extends [common/coding-style.md](../common/coding-style.md) with React-specific content.
+> 本文件在 [common/coding-style.md](../common/coding-style.md) 的基础上扩展了 React 特定内容。
 
-## Component Structure
+## 组件结构
 
-### Split Component + Styles + Utilities
+### 拆分组件 + 样式 + 工具函数
 
 ```tsx
 // user-profile.tsx
@@ -33,46 +33,46 @@ export function UserProfile({ user, onEdit }: UserProfileProps) {
 }
 ```
 
-### File Splitting
+### 文件拆分
 
-- Component logic in `.tsx`
-- Styles in `.scss` (co-located, same directory)
-- Component-specific utilities in separate `.ts` file
-- Tests in `__tests__/` at project root
+- 组件逻辑放在 `.tsx` 文件中
+- 样式放在 `.scss` 文件中（同目录放置）
+- 组件特定的工具函数放在单独的 `.ts` 文件中
+- 测试放在项目根级别的 `__tests__/` 目录中
 
-## Hooks Usage
+## Hooks 使用
 
-### Custom Hooks
+### 自定义 Hooks
 
-- Always use `use` prefix: `useAuth`, `useDebounce`
-- Keep hooks focused on a single concern
-- Return consistent shape: data + actions
+- 始终使用 `use` 前缀：`useAuth`、`useDebounce`
+- 保持 hook 专注于单一关注点
+- 返回一致的数据结构：数据 + 操作
 
 ```tsx
-// WRONG: Hook does too much
+// 错误：hook 做的事情太多
 function useUserProfile(id: string) {
   const [user, setUser] = useState()
   const [posts, setPosts] = useState()
   const [comments, setComments] = useState()
   const [settings, setSettings] = useState()
-  // fetches all in one hook
+  // 在一个 hook 中获取所有内容
   return { user, posts, comments, settings, ...actions }
 }
 
-// CORRECT: Focused hooks
+// 正确：专注的 hook
 function useUser(id: string) { ... }
 function useUserPosts(userId: string) { ... }
 ```
 
-### Rules
+### 规则
 
-- Only call hooks at the top level
-- Only call hooks from React function components or other hooks
-- Do not use hooks for side effects that should be in event handlers
+- 仅在顶层调用 hooks
+- 仅在 React 函数组件或其他 hooks 中调用 hooks
+- 不要将应该在事件处理器中的副作用放在 hooks 中
 
-## Error Boundary
+## 错误边界
 
-Every React application must have an Error Boundary:
+每个 React 应用程序都必须有一个错误边界：
 
 ```tsx
 class ErrorBoundary extends React.Component<
@@ -93,8 +93,8 @@ class ErrorBoundary extends React.Component<
       return (
         this.props.fallback ?? (
           <div role="alert">
-            <h2>Something went wrong</h2>
-            <p>Please try refreshing the page. If the problem persists, contact support.</p>
+            <h2>出现错误</h2>
+            <p>请尝试刷新页面。如果问题仍然存在，请联系支持。</p>
           </div>
         )
       )
@@ -103,7 +103,7 @@ class ErrorBoundary extends React.Component<
   }
 }
 
-// Usage
+// 使用
 <ErrorBoundary>
   <App />
 </ErrorBoundary>
@@ -111,9 +111,9 @@ class ErrorBoundary extends React.Component<
 
 ## Props
 
-- Define props with a named `interface` or `type`
-- Type callback props explicitly
-- Do not use `React.FC` unless there is a specific reason
+- 使用命名的 `interface` 或 `type` 定义 props
+- 显式类型化回调 props
+- 除非有特定理由，否则不要使用 `React.FC`
 
 ```tsx
 interface UserCardProps {
@@ -126,9 +126,9 @@ function UserCard({ user, onSelect }: UserCardProps) {
 }
 ```
 
-## State Management
+## 状态管理
 
-- Use `useState` for local component state
-- Use React Context for shared state across the component tree
-- Use React Query/SWR for server state (data fetching)
-- Do not duplicate server state into local stores
+- 使用 `useState` 管理组件局部状态
+- 使用 React Context 在组件树之间共享状态
+- 使用 React Query/SWR 管理服务端状态（数据获取）
+- 不要将服务端状态复制到本地存储中

@@ -1,21 +1,21 @@
 # code-style
 
-## Purpose
+## 用途
 
-Enforce personal coding style conventions for AI-generated code across TypeScript, React, Vue, and SCSS projects. Provides rules, style guides, and an auto-triggered code style reviewer agent.
+为 TypeScript、React、Vue 和 SCSS 项目的 AI 生成代码强制执行个人编码风格规范。提供 rules、风格指南和自动触发的代码风格审查 agent。
 
-## Components
+## 组件
 
-| Type | Path | Purpose |
-|------|------|---------|
-| Manifest | `.claude-plugin/plugin.json` | Plugin name, version, description |
-| Skill | `skills/code-style-principles/SKILL.md` | Universal coding style principles with good vs bad examples |
-| Skill | `skills/ts-style/SKILL.md` | TypeScript style guide — types, import order, file structure |
-| Skill | `skills/react-style/SKILL.md` | React style guide — component patterns, hooks, error boundaries |
-| Skill | `skills/vue-style/SKILL.md` | Vue style guide — composition API, component patterns |
-| Skill | `skills/scss-style/SKILL.md` | SCSS style guide — naming conventions, nesting limits |
-| Agent | `agents/code-style-reviewer.md` | Deep code style review before commits |
+| 类型 | 路径 | 用途 |
+|------|------|------|
+| 清单 | `.claude-plugin/plugin.json` | 插件名称、版本、描述 |
+| Skill | `skills/code-style-principles/SKILL.md` | 通用编码风格规范，含正反面示例 |
+| Skill | `skills/ts-style/SKILL.md` | TypeScript 风格指南 — 类型、导入顺序、文件结构 |
+| Skill | `skills/react-style/SKILL.md` | React 风格指南 — 组件模式、hooks、错误边界 |
+| Skill | `skills/vue-style/SKILL.md` | Vue 风格指南 — Composition API、组件模式 |
+| Skill | `skills/scss-style/SKILL.md` | SCSS 风格指南 — 命名约定、嵌套限制 |
+| Agent | `agents/code-style-reviewer.md` | 提交前深度代码风格审查 |
 
-## Version
+## 版本
 
 0.1.4

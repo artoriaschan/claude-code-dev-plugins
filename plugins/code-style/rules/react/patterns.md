@@ -1,10 +1,10 @@
-# React Patterns
+# React 模式
 
-> Common patterns for React projects.
+> React 项目的通用模式。
 
-## Compound Components
+## 复合组件
 
-Use compound components when related UI shares state:
+当相关 UI 共享状态时使用复合组件：
 
 ```tsx
 <Tabs defaultValue="overview">
@@ -17,16 +17,16 @@ Use compound components when related UI shares state:
 </Tabs>
 ```
 
-## Container / Presentational Split
+## 容器 / 展示拆分
 
 ```tsx
-// Container: owns data fetching
+// 容器：负责数据获取
 function UserListContainer() {
   const { data: users } = useQuery({ queryKey: ['users'], queryFn: fetchUsers })
   return <UserList items={users ?? []} />
 }
 
-// Presentational: pure render
+// 展示：纯渲染
 function UserList({ items }: { items: User[] }) {
   return items.map(u => <UserCard key={u.id} user={u} />)
 }
@@ -34,17 +34,17 @@ function UserList({ items }: { items: User[] }) {
 
 ## Render Props / Slots
 
-Use render props when behavior is shared but markup must vary:
+当行为共享但标记必须变化时使用 render props：
 
 ```tsx
 function MouseTracker({ render }: { render: (pos: { x: number; y: number }) => React.ReactNode }) {
   const [pos, setPos] = useState({ x: 0, y: 0 })
-  // ... mouse tracking
+  // ... 鼠标追踪
   return <>{render(pos)}</>
 }
 ```
 
-## Optimistic Updates
+## 乐观更新
 
 ```tsx
 function useOptimisticUpdate<T>(key: string[], data: T) {

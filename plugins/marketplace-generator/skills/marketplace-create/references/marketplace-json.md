@@ -1,7 +1,7 @@
-# marketplace.json Template
+# marketplace.json 模板
 
-Create `.claude-plugin/marketplace.json` at the project root.
-Get author info from `git config user.name` and `git config user.email`.
+在项目根目录创建 `.claude-plugin/marketplace.json`。
+从 `git config user.name` 和 `git config user.email` 获取作者信息。
 
 ```json
 {
@@ -21,4 +21,4 @@ Get author info from `git config user.name` and `git config user.email`.
 }
 ```
 
-Each plugin in `plugins/` should have an entry in the `plugins` array with its name and relative path.
+`plugins/` 中的每个插件都应在 `plugins` 数组中有一个条目，包含其名称和相对路径。

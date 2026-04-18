@@ -1,51 +1,51 @@
 # code-style
 
-Enforce personal coding style conventions for AI-generated code across TypeScript, React, Vue, and SCSS projects.
+为 TypeScript、React、Vue 和 SCSS 项目的 AI 生成代码强制执行个人编码风格规范。
 
-## What It Does
+## 功能
 
-Provides a complete set of coding style rules, language-specific style guides, and an auto-triggered code style reviewer:
-- Universal coding style principles (naming, immutability, file organization, error handling)
-- TypeScript, React, Vue, and SCSS specific style guides
-- PostToolUse hooks for auto-formatting and linting
-- Code style reviewer agent for deep review before commits
+提供完整的编码风格规则集、语言特定风格指南，以及自动触发的代码风格审查代理：
+- 通用编码风格规范（命名、不可变性、文件组织、错误处理）
+- TypeScript、React、Vue 和 SCSS 特定风格指南
+- PostToolUse 钩子用于自动格式化和 lint
+- 代码风格审查代理，在提交前进行深度审查
 
-## Usage
+## 使用
 
-Skills auto-trigger based on file types:
-- `code-style-principles` — writing/modifying any code
-- `ts-style` — editing `.ts`/`.js`/`.tsx`/`.jsx` files
-- `react-style` — editing `.tsx`/`.jsx` files
-- `vue-style` — editing `.vue` files
-- `scss-style` — editing `.scss`/`.sass` files
+技能根据文件类型自动触发：
+- `code-style-principles` — 编写/修改任何代码时
+- `ts-style` — 编辑 `.ts`/`.js`/`.tsx`/`.jsx` 文件时
+- `react-style` — 编辑 `.tsx`/`.jsx` 文件时
+- `vue-style` — 编辑 `.vue` 文件时
+- `scss-style` — 编辑 `.scss`/`.sass` 文件时
 
-### Installing Rules
+### 安装规则
 
-Rules are copied to `~/.claude/rules/code-style/` for Claude Code to auto-load them:
+规则会被复制到 `~/.claude/rules/code-style/` 供 Claude Code 自动加载：
 
-**Remote install (recommended):**
+**远程安装（推荐）：**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/plugins/code-style/install.sh | bash
 ```
 
-**Local install:**
+**本地安装：**
 
 ```bash
 ./install.sh
 ```
 
-## Components
+## 组件
 
-| Type | Name | Purpose |
-|------|------|---------|
-| Skill | `code-style-principles` | Universal coding style principles with good vs bad examples |
-| Skill | `ts-style` | TypeScript style guide |
-| Skill | `react-style` | React style guide |
-| Skill | `vue-style` | Vue style guide |
-| Skill | `scss-style` | SCSS style guide |
-| Agent | `code-style-reviewer` | Deep code style review before commits |
+| 类型 | 名称 | 用途 |
+|------|------|------|
+| Skill | `code-style-principles` | 通用编码风格规范，含正反面示例 |
+| Skill | `ts-style` | TypeScript 风格指南 |
+| Skill | `react-style` | React 风格指南 |
+| Skill | `vue-style` | Vue 风格指南 |
+| Skill | `scss-style` | SCSS 风格指南 |
+| Agent | `code-style-reviewer` | 提交前深度代码风格审查 |
 
-## Authors
+## 作者
 
 artoriaschan (dalecracker@gmail.com)

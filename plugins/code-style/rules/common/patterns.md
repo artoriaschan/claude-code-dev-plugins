@@ -1,24 +1,24 @@
-# Common Patterns
+# 通用模式
 
-> Design patterns and architectural principles used across all projects.
+> 所有项目中使用的设计模式和架构原则。
 
-## Component Composition
+## 组件组合
 
-### Container / Presentational Split
+### 容器 / 展示拆分
 
-- Container components own data loading and side effects
-- Presentational components receive props and render UI
-- Presentational components should stay pure
+- 容器组件负责数据加载和副作用
+- 展示组件接收 props 并渲染 UI
+- 展示组件应保持纯粹
 
 ```tsx
-// WRONG: Mixed concerns
+// 错误：混合关注点
 function UserList() {
   const [users, setUsers] = useState([])
   useEffect(() => { fetch('/api/users').then(r => r.json()).then(setUsers) }, [])
   return users.map(u => <div key={u.id}>{u.name}</div>)
 }
 
-// CORRECT: Split container and presentational
+// 正确：拆分容器和展示
 function UserListContainer() {
   const [users, setUsers] = useState([])
   useEffect(() => { fetch('/api/users').then(r => r.json()).then(setUsers) }, [])
@@ -30,26 +30,26 @@ function UserList({ items }: { items: User[] }) {
 }
 ```
 
-## State Management
+## 状态管理
 
-Separate concerns by state type:
+按状态类型分离关注点：
 
-| Concern | Tooling |
+| 关注点 | 工具 |
 |---------|---------|
-| Server state | React Query, SWR, tRPC |
-| Client state | Zustand, Jotai, Context |
-| URL state | Search params, route segments |
-| Form state | React Hook Form, Formik |
+| 服务端状态 | React Query、SWR、tRPC |
+| 客户端状态 | Zustand、Jotai、Context |
+| URL 状态 | Search params、route segments |
+| 表单状态 | React Hook Form、Formik |
 
-- Do not duplicate server state into client stores
-- Derive values instead of storing redundant computed state
+- 不要将服务端状态复制到客户端存储中
+- 派生值而不是存储冗余的计算状态
 
-## URL As State
+## URL 作为状态
 
-Persist shareable state in the URL:
-- Filters, sort order, pagination
-- Active tab, search query
+将可共享的状态持久化到 URL 中：
+- 筛选条件、排序顺序、分页
+- 活动标签页、搜索查询
 
-## Immutability
+## 不可变性
 
-See [coding-style.md](./coding-style.md) — immutability is a core principle.
+参见 [coding-style.md](./coding-style.md) — 不可变性是核心原则。

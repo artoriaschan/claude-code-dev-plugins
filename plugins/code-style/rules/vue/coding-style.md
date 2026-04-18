@@ -2,15 +2,15 @@
 paths:
   - "**/*.vue"
 ---
-# Vue Coding Style
+# Vue 编码风格
 
-> This file extends [common/coding-style.md](../common/coding-style.md) with Vue-specific content.
+> 本文件在 [common/coding-style.md](../common/coding-style.md) 的基础上扩展了 Vue 特定内容。
 
-## Component Structure
+## 组件结构
 
-### Use Composition API (`<script setup>`)
+### 使用组合式 API（`<script setup>`）
 
-Always use `<script setup>` with Composition API for new components:
+新组件始终使用 `<script setup>` 和组合式 API：
 
 ```vue
 <script setup lang="ts">
@@ -47,28 +47,28 @@ function handleEdit() {
 </template>
 ```
 
-### File Splitting
+### 文件拆分
 
-- Component in `.vue` (single file component)
-- Styles in `<style lang="scss" scoped>` or co-located `.scss`
-- Component-specific utilities in separate `.ts` files
-- Tests in `__tests__/` at project root
+- 组件放在 `.vue` 文件中（单文件组件）
+- 样式放在 `<style lang="scss" scoped>` 或同目录的 `.scss` 文件中
+- 组件特定的工具函数放在单独的 `.ts` 文件中
+- 测试放在项目根级别的 `__tests__/` 目录中
 
-## Composition API Rules
+## 组合式 API 规则
 
 ### Ref vs Reactive
 
-- Use `ref()` for primitive values and single objects
-- Use `reactive()` for grouped state that always updates together
-- Always use `.value` to access ref values in script
+- 对原始值和单个对象使用 `ref()`
+- 对始终一起更新的分组状态使用 `reactive()`
+- 在 script 中始终使用 `.value` 访问 ref 值
 
 ```vue
 <script setup lang="ts">
-// CORRECT: ref for primitives
+// 正确：ref 用于原始值
 const count = ref(0)
 const user = ref<User | null>(null)
 
-// CORRECT: reactive for grouped state
+// 正确：reactive 用于分组状态
 const formState = reactive({
   name: '',
   email: '',
@@ -77,10 +77,10 @@ const formState = reactive({
 </script>
 ```
 
-### Computed Properties
+### 计算属性
 
-- Use `computed()` for derived state
-- Do not mutate computed values
+- 对派生状态使用 `computed()`
+- 不要修改计算属性的值
 
 ```vue
 <script setup lang="ts">
@@ -90,10 +90,10 @@ const filteredUsers = computed(() =>
 </script>
 ```
 
-### Watch Usage
+### Watch 用法
 
-- Use `watch()` for side effects based on state changes
-- Use `watchEffect()` when tracking multiple reactive sources
+- 对基于状态变化的副作用使用 `watch()`
+- 对追踪多个响应式来源使用 `watchEffect()`
 
 ```vue
 <script setup lang="ts">
@@ -107,11 +107,11 @@ watch(
 </script>
 ```
 
-## Props and Emits
+## Props 和 Emits
 
-### Type-Safe Props
+### 类型安全的 Props
 
-Always define props with TypeScript interfaces:
+始终使用 TypeScript 接口定义 props：
 
 ```vue
 <script setup lang="ts">
@@ -125,9 +125,9 @@ const props = defineProps<Props>()
 </script>
 ```
 
-### Type-Safe Emits
+### 类型安全的 Emits
 
-Always define emits with TypeScript interfaces:
+始终使用 TypeScript 接口定义 emits：
 
 ```vue
 <script setup lang="ts">
@@ -141,39 +141,39 @@ const emit = defineEmits<Emits>()
 </script>
 ```
 
-## Error Boundary
+## 错误边界
 
-Vue 3 requires error handling via `errorCaptured` hook or app-level error handler:
+Vue 3 需要通过 `errorCaptured` hook 或应用级错误处理器进行错误处理：
 
 ```ts
-// In main.ts
+// 在 main.ts 中
 const app = createApp(App)
 
 app.config.errorHandler = (error, instance, info) => {
-  // Log error
+  // 记录错误
   console.error('Vue error:', error)
-  // Show user-friendly message
-  // Track error analytics
+  // 显示用户友好的消息
+  // 追踪错误分析
 }
 ```
 
-Or component-level:
+或组件级别：
 
 ```vue
 <script setup lang="ts">
 import { onErrorCaptured } from 'vue'
 
 onErrorCaptured((error) => {
-  // Handle child component error
+  // 处理子组件错误
   console.error('Child component error:', error)
-  return false // prevent error propagation
+  return false // 阻止错误传播
 })
 </script>
 ```
 
-## Component Naming
+## 组件命名
 
-- Component names: PascalCase (`UserProfile`, `Sidebar`)
-- Custom events: kebab-case (`@user-select`, `@item-delete`)
-- Composables: `use` prefix (`useAuth`, `useDebounce`)
-- Files: kebab-case (`user-profile.vue`, `auth-composable.ts`)
+- 组件名称：PascalCase（`UserProfile`、`Sidebar`）
+- 自定义事件：kebab-case（`@user-select`、`@item-delete`）
+- Composables：`use` 前缀（`useAuth`、`useDebounce`）
+- 文件：kebab-case（`user-profile.vue`、`auth-composable.ts`）

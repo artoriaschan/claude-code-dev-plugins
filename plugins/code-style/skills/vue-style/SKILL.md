@@ -1,25 +1,25 @@
 ---
-description: "Vue style guide for composition API, component patterns, props/emits typing, and error handling. Triggers when editing .vue files."
-trigger: "Edit .vue files, Vue components"
-argument-hint: "[optional: specific topic like 'composables', 'props', 'error-handling']"
+description: "Vue composition API、组件模式、props/emits 类型定义和错误处理风格指南。在编辑 .vue 文件时触发。"
+trigger: "编辑 .vue 文件、Vue 组件"
+argument-hint: "[可选：具体主题如 'composables'、'props'、'error-handling']"
 allowed-tools: ["Read", "Grep", "Glob"]
 ---
 
-# Vue Style
+# Vue 风格
 
-Enforces strict Vue coding conventions for AI-generated code.
+为 AI 生成的代码强制 Vue 编码约定。
 
-## When to Activate
+## 何时激活
 
-- Editing `.vue` files
-- User calls `/vue-style`
-- Generating Vue components
+- 编辑 `.vue` 文件
+- 用户调用 `/vue-style`
+- 生成 Vue组件
 
-## Rules
+## 规则
 
-See [rules/vue/coding-style.md](../../rules/vue/coding-style.md) for full details including:
+完整详情参考 [rules/vue/coding-style.md](../../rules/vue/coding-style.md)，包括：
 
-- **Composition API**: Always use `<script setup lang="ts">`
-- **Props/Emits**: Type-safe with `defineProps<Interface>()` and `defineEmits<Interface>()`
-- **Naming**: Components PascalCase, events kebab-case, composables `use` prefix
-- **Error Boundary**: `app.config.errorHandler` or `onErrorCaptured`
+- **Composition API**：始终使用 `<script setup lang="ts">`
+- **Props/Emits**：类型安全使用 `defineProps<Interface>()` 和 `defineEmits<Interface>()`
+- **命名**：组件 PascalCase、事件 kebab-case、composables 使用 `use` 前缀
+- **Error Boundary**：`app.config.errorHandler` 或 `onErrorCaptured`

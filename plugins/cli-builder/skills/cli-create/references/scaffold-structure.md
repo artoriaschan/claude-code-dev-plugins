@@ -1,18 +1,18 @@
-# Scaffold Structure Reference
+# 脚手架结构参考
 
-## Monorepo Overview
+## Monorepo 概览
 
-The generated project is a pnpm monorepo with Turborepo orchestration. All packages share a unified version via Changesets fixed mode.
+生成的项目是一个使用 pnpm 和 Turborepo 编排的 monorepo。所有包通过 Changesets fixed 模式共享统一版本。
 
-## Root Files
+## 根文件
 
-### package.json (root)
+### package.json（根目录）
 
-- `private: true` — prevents accidental publishing
-- `type: "module"` — ESM-only
-- `packageManager` field with pnpm version
+- `private: true` — 防止意外发布
+- `type: "module"` — 仅 ESM
+- `packageManager` 字段指定 pnpm 版本
 - `engines.node` >= 18.0.0
-- DevDependencies: typescript, tsup, vitest, eslint, prettier, husky, lint-staged, changesets, turbo, sheriff
+- 开发依赖：typescript、tsup、vitest、eslint、prettier、husky、lint-staged、changesets、turbo、sheriff
 
 ### pnpm-workspace.yaml
 
@@ -23,27 +23,27 @@ packages:
 
 ### tsconfig.base.json
 
-Shared base config inherited by all packages. ESM settings, strict mode, NodeNext resolution.
+所有包共享的基础配置。ESM 设置、严格模式、NodeNext 解析。
 
 ### turbo.json
 
-Build orchestration with caching. Defines task dependencies (build depends on ^build, test depends on build).
+带缓存的构建编排。定义任务依赖（build 依赖 ^build，test 依赖 build）。
 
 ### vitest.config.ts + vitest.workspace.ts
 
-Root vitest config. Workspace references all packages. Coverage via @vitest/coverage-v8.
+根级 vitest 配置。workspace 引用所有包。覆盖率使用 @vitest/coverage-v8。
 
 ### eslint.config.js
 
-Flat config with typescript-eslint, sheriff, prettier. Imports and barrel export rules.
+Flat 配置，包含 typescript-eslint、sheriff、prettier。导入和 barrel 导出规则。
 
 ### sheriff.config.ts
 
-Module boundary enforcement. Defines allowed imports between packages.
+模块边界强制检查。定义包之间允许的导入。
 
 ### .husky/pre-commit
 
-Runs lint-staged before commits.
+在提交前运行 lint-staged。
 
 ### .gitignore
 
@@ -55,46 +55,46 @@ types/
 .claude/
 ```
 
-## Package Structure
+## 包结构
 
-Each package in `packages/` follows:
+`packages/` 中的每个包遵循以下结构：
 
 ```
 packages/<name>/
-├── package.json        # Package-specific config
-├── tsconfig.json       # Extends root tsconfig.base.json
-├── tsconfig.build.json # Build-specific config
+├── package.json        # 包级配置
+├── tsconfig.json       # 继承根 tsconfig.base.json
+├── tsconfig.build.json # 构建专用配置
 ├── src/
-│   ├── index.ts        # Barrel export
-│   ├── core/           # Shared utilities
-│   └── commands/       # Command implementations
-└── tests/              # Test files (*.spec.ts)
+│   ├── index.ts        # Barrel 导出
+│   ├── core/           # 共享工具函数
+│   └── commands/       # 命令实现
+└── tests/              # 测试文件 (*.spec.ts)
 ```
 
-### CLI Package (packages/cli)
+### CLI 包（packages/cli）
 
-The main CLI package. Contains:
+主 CLI 包。包含：
 
-- `package.json` with `bin` field pointing to dist entry
-- `src/index.ts` — bootstrap file, registers Commander program
-- `src/commands/` — one file per subcommand
-- `src/core/` — config loading, types, utilities
-- `scripts/generate-schemas.ts` — generates JSON schemas from Zod
+- `package.json` 中 `bin` 字段指向 dist 入口
+- `src/index.ts` — 引导文件，注册 Commander 程序
+- `src/commands/` — 每个子命令一个文件
+- `src/core/` — 配置加载、类型、工具函数
+- `scripts/generate-schemas.ts` — 从 Zod 生成 JSON schema
 
-### Widget-Renderer Package (packages/widget-renderer)
+### Widget-Renderer 包（packages/widget-renderer）
 
-Shared rendering library. Contains:
+共享渲染库。包含：
 
-- `src/index.ts` — barrel export of widget types and renderers
-- Config schema exports
+- `src/index.ts` — barrel 导出 widget 类型和渲染器
+- 配置 schema 导出
 
-### Usage Adapter Package (optional)
+### Usage Adapter 包（可选）
 
-Adapter for external APIs. Dynamic import pattern.
+外部 API 适配器。使用动态导入模式。
 
-## File Templates
+## 文件模板
 
-### Command Template
+### 命令模板
 
 ```typescript
 import { Command } from 'commander'
@@ -108,19 +108,19 @@ export function registerCommand(program: Command) {
     .command('name')
     .description('description')
     .action(async () => {
-      // implementation
+      // 实现
     })
 }
 ```
 
-### Barrel Export Template
+### Barrel 导出模板
 
 ```typescript
 export { registerInit } from './commands/init.js'
 export { registerList } from './commands/list.js'
 ```
 
-### Config Template
+### 配置模板
 
 ```typescript
 import { z } from 'zod'

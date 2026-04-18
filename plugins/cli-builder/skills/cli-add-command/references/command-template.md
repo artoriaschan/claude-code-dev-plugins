@@ -1,8 +1,8 @@
-# Command File Template
+# 命令文件模板
 
-Use this template when generating new command files. Replace placeholders in `<angle-brackets>`.
+在生成新命令文件时使用此模板。替换 `<尖括号>` 中的占位符。
 
-## File: packages/cli/src/commands/<command-name>.ts
+## 文件：packages/cli/src/commands/<command-name>.ts
 
 ```typescript
 import { Command } from 'commander'
@@ -48,11 +48,11 @@ export function register<CommandName>(program: Command) {
 }
 ```
 
-## Conventions
+## 约定
 
-- File name: kebab-case (`my-command.ts`)
-- Function name: PascalCase (`registerMyCommand`)
-- `.js` extension in imports
-- Zod schema for all input validation
-- Chalk for colored output
-- @clack/prompts for interactive input
+- 文件名：kebab-case（`my-command.ts`）
+- 函数名：PascalCase（`registerMyCommand`）
+- 导入中使用 `.js` 扩展名
+- 使用 Zod schema 进行所有输入验证
+- 使用 Chalk 进行彩色输出
+- 使用 @clack/prompts 进行交互式输入

@@ -1,25 +1,25 @@
 ---
-description: "React style guide for component patterns, hooks usage, error boundaries, and prop typing. Triggers when editing .tsx/.jsx files."
-trigger: "Edit .tsx .jsx files, React components"
-argument-hint: "[optional: specific topic like 'hooks', 'error-boundary', 'props']"
+description: "React 组件模式、hooks 使用、error boundaries 和 props 类型风格指南。在编辑 .tsx/.jsx 文件时触发。"
+trigger: "编辑 .tsx .jsx 文件、React 组件"
+argument-hint: "[可选：具体主题如 'hooks'、'error-boundary'、'props']"
 allowed-tools: ["Read", "Grep", "Glob"]
 ---
 
-# React Style
+# React 风格
 
-Enforces strict React coding conventions for AI-generated code.
+为 AI 生成的代码强制 React 编码约定。
 
-## When to Activate
+## 何时激活
 
-- Editing `.tsx`, `.jsx` files
-- User calls `/react-style`
-- Generating React components
+- 编辑 `.tsx`、`.jsx` 文件
+- 用户调用 `/react-style`
+- 生成 React 组件
 
-## Rules
+## 规则
 
-See [rules/react/coding-style.md](../../rules/react/coding-style.md) for full details including:
+完整详情参考 [rules/react/coding-style.md](../../rules/react/coding-style.md)，包括：
 
-- **Component structure**: Split component logic + styles + utilities
-- **Hooks**: `use` prefix, single concern, top-level only
-- **Props**: Typed with `interface`, no `React.FC` unless necessary
-- **Error Boundary**: Required for all React apps
+- **组件结构**：拆分组件逻辑、样式、工具函数
+- **Hooks**：`use` 前缀、单一关注点、仅顶层使用
+- **Props**：使用 `interface` 类型定义、除非必要不使用 `React.FC`
+- **Error Boundary**：所有 React 应用必须配置

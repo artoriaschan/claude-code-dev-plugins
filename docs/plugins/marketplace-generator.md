@@ -1,19 +1,19 @@
 # marketplace-generator
 
-## Purpose
+## 用途
 
-Generate complete Claude Code plugin marketplace projects with guided workflows and example plugins. Provides skills for marketplace creation, development workflow enforcement, and batch format fixing.
+生成完整的 Claude Code 插件市场项目，包含引导式工作流和示例插件。提供市场创建、开发工作流强制执行和批量格式修复的 skills。
 
-## Components
+## 组件
 
-| Type | Path | Purpose |
-|------|------|---------|
-| Manifest | `.claude-plugin/plugin.json` | Plugin name, version, description |
-| Skill | `skills/marketplace-create/SKILL.md` | Guide users through creating a complete marketplace project from scratch |
-| Skill | `skills/marketplace-dev-workflow/SKILL.md` | Enforce development workflow when adding, updating, or removing plugins |
-| Skill | `skills/marketplace-format/SKILL.md` | Scan, diagnose, and batch-fix format inconsistencies in existing projects |
-| Agent | `agents/marketplace-validator.md` | Validate marketplace structure and consistency |
+| 类型 | 路径 | 用途 |
+|------|------|------|
+| 清单 | `.claude-plugin/plugin.json` | 插件名称、版本、描述 |
+| Skill | `skills/marketplace-create/SKILL.md` | 引导用户从零开始创建完整的市场项目 |
+| Skill | `skills/marketplace-dev-workflow/SKILL.md` | 添加、更新或移除插件时强制执行开发工作流 |
+| Skill | `skills/marketplace-format/SKILL.md` | 扫描、诊断并批量修复现有项目的格式不一致 |
+| Agent | `agents/marketplace-validator.md` | 验证市场结构和一致性 |
 
-## Version
+## 版本
 
 0.1.1

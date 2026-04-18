@@ -1,7 +1,7 @@
 {
   "name": "example-plugin",
   "version": "0.1.0",
-  "description": "Example plugin demonstrating all component types: skills, agents, hooks, and rules",
+  "description": "示例插件，展示所有组件类型：技能、代理、钩子和规则",
   "author": {
     "name": "artoriaschan",
     "email": "dalecracker@gmail.com"

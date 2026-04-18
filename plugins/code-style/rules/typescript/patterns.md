@@ -1,10 +1,10 @@
-# TypeScript Patterns
+# TypeScript 模式
 
-> Common patterns for TypeScript projects.
+> TypeScript 项目的通用模式。
 
-## Repository Pattern
+## 仓储模式
 
-Encapsulate data access behind a consistent interface:
+将数据访问封装在一致的接口后面：
 
 ```typescript
 interface UserRepository {
@@ -25,9 +25,9 @@ class HttpUserRepository implements UserRepository {
 }
 ```
 
-## API Response Envelope
+## API 响应信封
 
-Use consistent response format for all API responses:
+对所有 API 响应使用一致的响应格式：
 
 ```typescript
 interface ApiResponse<T> {
@@ -42,9 +42,9 @@ interface ApiResponse<T> {
 }
 ```
 
-## Result Type
+## Result 类型
 
-Use Result type for operations that can fail:
+对可能失败的操作使用 Result 类型：
 
 ```typescript
 type Result<T, E = Error> =

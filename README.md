@@ -1,18 +1,18 @@
 # Claude Code Dev Plugins
 
-Personal Claude Code plugin collection.
+个人 Claude Code 插件集合。
 
-## Plugins
+## 插件列表
 
-| Plugin | Purpose | Details |
-|--------|---------|---------|
-| **cli-builder** | TypeScript CLI project scaffolding (with simple mode) and command templates | [plugins/cli-builder/README.md](plugins/cli-builder/README.md) |
-| **code-style** | Coding style conventions for TypeScript, React, Vue, and SCSS | [plugins/code-style/README.md](plugins/code-style/README.md) |
-| **marketplace-generator** | Generate complete Claude Code plugin marketplace projects with guided workflows and format existing projects | [plugins/marketplace-generator/README.md](plugins/marketplace-generator/README.md) |
+| 插件 | 用途 | 详情 |
+|------|------|------|
+| **cli-builder** | TypeScript CLI 项目脚手架（含简洁模式）和命令模板 | [plugins/cli-builder/README.md](plugins/cli-builder/README.md) |
+| **code-style** | TypeScript、React、Vue 和 SCSS 编码风格规范 | [plugins/code-style/README.md](plugins/code-style/README.md) |
+| **marketplace-generator** | 生成完整的 Claude Code 插件市场项目，支持引导式工作流和格式化现有项目 | [plugins/marketplace-generator/README.md](plugins/marketplace-generator/README.md) |
 
-## Quick Start
+## 快速开始
 
-Add the marketplace and install plugins from within Claude Code:
+在 Claude Code 中添加市场并安装插件：
 
 ```
 /plugin marketplace add artoriaschan/claude-code-dev-plugins
@@ -20,29 +20,29 @@ Add the marketplace and install plugins from within Claude Code:
 /plugin install code-style
 ```
 
-> **Note:** For `code-style` plugin, install rules after installation:
+> **注意：** 安装 `code-style` 插件后，需要运行以下命令安装规则文件：
 >
 > ```bash
 > curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/plugins/code-style/install.sh | bash
 > ```
 
-## Adding a New Plugin
+## 添加新插件
 
-1. Create directory under `plugins/<name>/`
-2. Create `.claude-plugin/plugin.json` manifest
-3. Add skills, agents as needed
-4. Register in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json)
+1. 在 `plugins/<name>/` 下创建目录
+2. 创建 `.claude-plugin/plugin.json` 清单文件
+3. 按需添加 skills 和 agents
+4. 在 [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) 中注册
 
-See [docs/development-workflow.md](docs/development-workflow.md) for detailed workflow.
+详见 [docs/development-workflow.md](docs/development-workflow.md)。
 
-## Documentation
+## 文档
 
-| Topic | File |
-|-------|------|
-| Project overview and goals | [docs/project-overview.md](docs/project-overview.md) |
-| Plugin structure and manifest format | [docs/plugin-structure.md](docs/plugin-structure.md) |
-| Plugin development workflow | [docs/development-workflow.md](docs/development-workflow.md) |
+| 主题 | 文件 |
+|------|------|
+| 项目简介和目标 | [docs/project-overview.md](docs/project-overview.md) |
+| 插件结构和清单格式 | [docs/plugin-structure.md](docs/plugin-structure.md) |
+| 插件开发工作流 | [docs/development-workflow.md](docs/development-workflow.md) |
 
-## License
+## 许可证
 
 MIT

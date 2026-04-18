@@ -1,31 +1,31 @@
-# Project Overview
+# 项目概述
 
-## What Is This Project
+## 项目简介
 
-A Claude Code plugin marketplace. It hosts custom plugins for personal development workflows, distributed via the Claude Code marketplace under `artoriaschan/claude-code-dev-plugins`.
+这是一个 Claude Code 插件市场。它为个人开发工作流托管自定义插件，通过 Claude Code 市场以 `artoriaschan/claude-code-dev-plugins` 分发。
 
-## Goals
+## 目标
 
-1. **Reusable plugins**: Build plugins for recurring development tasks (CLI scaffolding, code review, deployment, etc.)
-2. **Personal conventions**: Enforce consistent code styles and project structures across all generated projects
-3. **Iterative improvement**: Plugins evolve based on daily usage — new skills and agents are added as needs arise
+1. **可复用插件**：为常见开发任务（CLI 脚手架、代码审查、部署等）构建插件
+2. **个人约定**：在所有生成的项目中强制执行一致的代码风格和项目结构
+3. **持续改进**：插件基于日常使用持续演进 — 根据需求添加新的 skills 和 agents
 
-## Design Principles
+## 设计原则
 
-### Per-Plugin Independence
+### 插件独立
 
-Each plugin lives under `plugins/<name>/` with its own manifest. Plugins are independently developable, testable, and shareable.
+每个插件位于 `plugins/<name>/` 下，拥有独立的清单文件。插件可独立开发、测试和分享。
 
-### Auto-Discovery Over Explicit Registration
+### 自动发现优于显式注册
 
-Skills and agents are auto-discovered from standard directories. Manifest paths override auto-discovery only when needed.
+Skills 和 agents 从标准目录自动发现。仅在需要时通过清单路径覆盖自动发现。
 
-### Convention as Code
+### 约定即代码
 
-Coding conventions for generated projects are captured as rules and enforced automatically — not documented and forgotten.
+生成项目的编码约定以 rules 形式捕获并自动执行 — 而非记录后遗忘。
 
-## Status
+## 状态
 
-- Plugins published to Claude Code marketplace: `artoriaschan/claude-code-dev-plugins`
-- Lightweight skill definitions with detailed rules in `rules/` to avoid content duplication
-- Add more plugins as development needs arise
+- 插件已发布到 Claude Code 市场：`artoriaschan/claude-code-dev-plugins`
+- 轻量级 skill 定义，详细规则位于 `rules/` 中以避免内容重复
+- 根据开发需求持续添加更多插件

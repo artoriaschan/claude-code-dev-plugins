@@ -1,75 +1,75 @@
-# Tech Stack & Code Conventions
+# 技术栈与代码约定
 
-Industry-standard conventions for building modern TypeScript CLI applications. All generated CLI projects MUST follow these conventions.
+构建现代 TypeScript CLI 应用程序的行业标准约定。所有生成的 CLI 项目必须遵循这些约定。
 
-## Core Technologies
+## 核心技术
 
-| Technology | Version | Purpose | Rationale |
+| 技术 | 版本 | 用途 | 理由 |
 |------------|---------|---------|-----------|
-| Node.js | >=18.0.0 (20.x LTS recommended) | Runtime | LTS stability, native ESM support |
-| TypeScript | 5.4.x+ | Language | Strict type checking, modern ESM support |
-| pnpm | 9.x+ | Package Manager | Fast installs, strict peer deps |
-| Commander | 13.x | CLI Framework | Mature, lightweight, excellent TS support, auto-generated help |
-| Chalk | 5.x | ANSI Colors | ESM-only, minimal overhead, chainable API |
-| Zod | 3.24.x | Schema Validation | TypeScript-first, runtime validation, excellent errors |
+| Node.js | >=18.0.0（推荐 20.x LTS） | 运行时 | LTS 稳定性、原生 ESM 支持 |
+| TypeScript | 5.4.x+ | 语言 | 严格类型检查、现代 ESM 支持 |
+| pnpm | 9.x+ | 包管理器 | 快速安装、严格的 peer deps |
+| Commander | 13.x | CLI 框架 | 成熟、轻量级、出色的 TS 支持、自动生成帮助 |
+| Chalk | 5.x | ANSI 颜色 | 仅 ESM、最小开销、链式 API |
+| Zod | 3.24.x | Schema 验证 | TypeScript 优先、运行时验证、优秀的错误信息 |
 
-## Infrastructure
+## 基础设施
 
-| Technology | Version | Purpose |
+| 技术 | 版本 | 用途 |
 |------------|---------|---------|
-| tsup | 8.x | Bundler — Zero-config TypeScript Bundling, ESM output |
-| tsx | 4.x | TypeScript Execution — Run TS directly in dev, ESM-native |
-| Changesets | 2.x | Version Management — Fixed mode (monorepo) / normal mode (simple) |
-| Vitest | 3.x+ | Testing — ESM-native, TypeScript-first, faster than Jest |
+| tsup | 8.x | 打包器 — 零配置 TypeScript 打包、ESM 输出 |
+| tsx | 4.x | TypeScript 执行 — 开发时直接运行 TS、ESM 原生支持 |
+| Changesets | 2.x | 版本管理 — fixed 模式（monorepo）/ normal 模式（简单） |
+| Vitest | 3.x+ | 测试 — ESM 原生支持、TypeScript 优先、比 Jest 更快 |
 
-### Monorepo-Only Infrastructure
+### 仅 Monorepo 基础设施
 
-| Technology | Version | Purpose |
+| 技术 | 版本 | 用途 |
 |------------|---------|---------|
-| Turborepo | 2.x | Build orchestration with caching |
+| Turborepo | 2.x | 带缓存的构建编排 |
 
-## Supporting Libraries
+## 辅助库
 
-| Library | Version | Purpose |
+| 库 | 版本 | 用途 |
 |---------|---------|---------|
-| @clack/prompts | 0.10.x | Interactive Prompts — Modern, beautiful, minimal |
+| @clack/prompts | 0.10.x | 交互式提示 — 现代、美观、轻量 |
 
-## Development Tools
+## 开发工具
 
-| Tool | Purpose | Scope |
+| 工具 | 用途 | 范围 |
 |------|---------|-------|
-| ESLint 10.x + typescript-eslint | Linting with type checking | Both |
-| Prettier 3.x | Code formatting | Both |
-| Turborepo 2.x | Build orchestration with caching | Monorepo only |
-| Sheriff 0.19.x | Module boundary enforcement | Monorepo only |
-| Husky 9.x + lint-staged 16.x | Git hooks for pre-commit checks | Both |
+| ESLint 10.x + typescript-eslint | 带类型检查的 Linting | 两者 |
+| Prettier 3.x | 代码格式化 | 两者 |
+| Turborepo 2.x | 带缓存的构建编排 | 仅 monorepo |
+| Sheriff 0.19.x | 模块边界强制检查 | 仅 monorepo |
+| Husky 9.x + lint-staged 16.x | Git 钩子用于提交前检查 | 两者 |
 
-## What NOT to Use
+## 不应使用的技术
 
-| Avoid | Why | Use Instead |
+| 避免使用 | 原因 | 替代方案 |
 |-------|-----|-------------|
-| ts-node | Slower than tsx, CommonJS default | tsx (4.x) |
-| Jest | CommonJS-first, slow, complex ESM support | Vitest (3.x) |
-| Inquirer.js | Large bundle, dated API | @clack/prompts |
-| npm/yarn workspaces | Slower installs, less strict deps | pnpm workspaces |
-| chalk 4.x | CommonJS, project requires ESM only | chalk 5.x |
-| oclif | Overkill for simple CLI, large bundle | Commander |
-| Joi | Large bundle, CommonJS default, less TS-native | Zod |
+| ts-node | 比 tsx 慢、默认 CommonJS | tsx (4.x) |
+| Jest | CommonJS 优先、慢、ESM 支持复杂 | Vitest (3.x) |
+| Inquirer.js | 包体积大、API 过时 | @clack/prompts |
+| npm/yarn workspaces | 安装慢、依赖约束不严格 | pnpm workspaces |
+| chalk 4.x | CommonJS、项目要求仅 ESM | chalk 5.x |
+| oclif | 对于简单 CLI 过于复杂、包体积大 | Commander |
+| Joi | 包体积大、默认 CommonJS、TS 原生支持较弱 | Zod |
 
-## Project Conventions
+## 项目约定
 
-- TypeScript ESM only (`"type": "module"`)
-- Barrel exports (simple: `src/index.ts`, monorepo: `packages/cli/src/index.ts`)
-- `.spec.ts` naming convention for tests
-- TypeScript strict mode enabled
+- 仅 TypeScript ESM（`"type": "module"`）
+- Barrel 导出（简单项目：`src/index.ts`，monorepo：`packages/cli/src/index.ts`）
+- 测试使用 `.spec.ts` 命名约定
+- 启用 TypeScript 严格模式
 
-## Directory Conventions
+## 目录约定
 
-- `core/` — Shared utilities, config, types
-- `commands/` (or `feature/`) — Command implementations
-- `domain/` — Business logic and core types
+- `core/` — 共享工具函数、配置、类型
+- `commands/`（或 `feature/`） — 命令实现
+- `domain/` — 业务逻辑和核心类型
 
-## Package.json Scripts Template
+## package.json Scripts 模板
 
 ### Monorepo
 
@@ -94,7 +94,7 @@ Industry-standard conventions for building modern TypeScript CLI applications. A
 }
 ```
 
-### Simple
+### 简单项目
 
 ```json
 {
@@ -115,7 +115,7 @@ Industry-standard conventions for building modern TypeScript CLI applications. A
 }
 ```
 
-## tsconfig.base.json Template
+## tsconfig.base.json 模板
 
 ```json
 {

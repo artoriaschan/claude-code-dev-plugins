@@ -1,119 +1,119 @@
-# Plugin Structure & Manifest Format
+# 插件结构与清单格式
 
-## Directory Layout
+## 目录布局
 
-Each plugin lives under `plugins/<name>/`:
+每个插件位于 `plugins/<name>/` 下：
 
 ```
 plugins/<name>/
 ├── .claude-plugin/
-│   └── plugin.json        # Plugin manifest (per-plugin)
-├── README.md              # Plugin documentation
-├── skills/                # Auto-activating skills
+│   └── plugin.json        # 插件清单（每个插件独立）
+├── README.md              # 插件文档
+├── skills/                # 自动激活的 skills
 │   └── <skill-name>/
-│       ├── SKILL.md       # Required
-│       ├── references/    # Detailed docs loaded on demand
-│       ├── examples/      # Working examples
-│       └── scripts/       # Utility scripts
-├── agents/                # Subagent definitions
-│   └── <agent-name>.md    # Agent with frontmatter + system prompt
-├── install.sh             # Optional setup script (downloads or copies rules)
-└── rules/                 # Coding style rules (optional)
+│       ├── SKILL.md       # 必需
+│       ├── references/    # 按需加载的详细文档
+│       ├── examples/      # 工作示例
+│       └── scripts/       # 实用脚本
+├── agents/                # 子 agent 定义
+│   └── <agent-name>.md    # 包含 frontmatter + 系统提示的 agent
+├── install.sh             # 可选的安装脚本（下载或复制 rules）
+└── rules/                 # 编码风格 rules（可选）
     └── <language>/
-        └── *.md           # Rules files
+        └── *.md           # rules 文件
 ```
 
-## Manifest (.claude-plugin/plugin.json)
+## 清单（.claude-plugin/plugin.json）
 
-Each plugin has its own manifest at `plugins/<name>/.claude-plugin/plugin.json`:
+每个插件拥有独立的清单文件，位于 `plugins/<name>/.claude-plugin/plugin.json`：
 
 ```json
 {
   "name": "code-style",
   "version": "0.1.3",
-  "description": "Enforce personal coding style conventions.",
+  "description": "强制执行个人编码风格约定。",
   "author": { "name": "artoriaschan" }
 }
 ```
 
-Skills and agents are **auto-discovered** from standard directories:
+Skills 和 agents 从标准目录**自动发现**：
 
-| Component | Auto-discovery path |
-|-----------|---------------------|
+| 组件 | 自动发现路径 |
+|------|--------------|
 | Skills | `plugins/<name>/skills/<skill-name>/SKILL.md` |
 | Agents | `plugins/<name>/agents/<agent-name>.md` |
 
-### Manifest Fields
+### 清单字段
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | Yes | Unique kebab-case identifier |
-| `version` | No | Semver version |
-| `description` | No | One-line purpose summary |
-| `author` | No | Author info |
-| `skills` | No | Relative path to skills directory (overrides auto-discovery) |
-| `agents` | No | Relative path or array of agent paths (overrides auto-discovery) |
+| 字段 | 必填 | 描述 |
+|------|------|------|
+| `name` | 是 | 唯一的 kebab-case 标识符 |
+| `version` | 否 | 语义化版本号 |
+| `description` | 否 | 一行用途说明 |
+| `author` | 否 | 作者信息 |
+| `skills` | 否 | skills 目录的相对路径（覆盖自动发现） |
+| `agents` | 否 | agent 路径的相对路径或数组（覆盖自动发现） |
 
-### Path Rules
+### 路径规则
 
-- Paths are relative to the `.claude-plugin/` directory (parent of plugin.json)
-- Must start with `./`
-- Cannot be absolute
+- 路径相对于 `.claude-plugin/` 目录（plugin.json 的父目录）
+- 必须以 `./` 开头
+- 不能是绝对路径
 
-## Skill Frontmatter (SKILL.md)
+## Skill Frontmatter（SKILL.md）
 
 ```yaml
 ---
 name: skill-name
-description: Third-person description with specific trigger phrases like "do X", "create Y"
+description: 使用第三人称描述，包含具体触发短语如 "do X"、"create Y"
 version: 0.1.0
 ---
 ```
 
-### Description Requirements
+### 描述要求
 
-- Use third person: "This skill should be used when..."
-- Include specific trigger phrases in quotes
-- Be concrete, not vague
+- 使用第三人称："此技能应在...时使用"
+- 包含具体的触发短语（用引号标注）
+- 具体明确，不要模糊笼统
 
-## Agent Frontmatter (.md)
+## Agent Frontmatter（.md）
 
 ```yaml
 ---
-description: What this agent does and when it triggers
+description: agent 的功能和触发时机
 capabilities:
-  - Specific task 1
-  - Specific task 2
+  - 具体任务 1
+  - 具体任务 2
 ---
 ```
 
-## Rules (Optional)
+## Rules（可选）
 
-Plugins can ship coding style rules under `plugins/<name>/rules/`. The `install.sh` script copies them to `~/.claude/rules/` for Claude Code to auto-load them:
+插件可在 `plugins/<name>/rules/` 下提供编码风格规则。`install.sh` 脚本将它们复制到 `~/.claude/rules/` 供 Claude Code 自动加载：
 
 ```bash
-# Remote install (no clone needed)
+# 远程安装（无需克隆仓库）
 curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/plugins/code-style/install.sh | bash
 ```
 
-The install script:
-- Detects local vs remote mode automatically
-- Removes existing rules before installing a fresh copy
+安装脚本：
+- 自动检测本地和远程模式
+- 安装前先移除现有 rules，然后安装全新副本
 
-Rules follow a layered structure:
+Rules 采用分层结构：
 
 ```
 rules/
-├── common/              # Cross-language principles
-│   ├── coding-style.md  # Naming, immutability, errors, comments
-│   ├── patterns.md      # Design patterns
-│   └── testing.md       # Testing conventions
-├── <language>/          # Language-specific rules
-│   ├── coding-style.md  # Language conventions
-│   ├── patterns.md      # Language patterns
-└── <framework>/         # Framework-specific rules
+├── common/              # 跨语言通用原则
+│   ├── coding-style.md  # 命名、不可变性、错误处理、注释
+│   ├── patterns.md      # 设计模式
+│   └── testing.md       # 测试约定
+├── <language>/          # 语言特定规则
+│   ├── coding-style.md  # 语言约定
+│   ├── patterns.md      # 语言模式
+└── <framework>/         # 框架特定规则
     ├── coding-style.md
     └── patterns.md
 ```
 
-Rules use relative path references (`../common/xxx.md`) to cross-reference shared principles.
+Rules 使用相对路径引用（`../common/xxx.md`）来交叉引用共享原则。

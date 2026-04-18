@@ -1,16 +1,16 @@
-# Plugin Development Workflow
+# 插件开发工作流
 
-## 1. Creating a New Plugin
+## 1. 创建新插件
 
-1. Create directory under `plugins/<name>/`
-2. Create `.claude-plugin/plugin.json` with `name`, `version`, `description`
-3. Add skills, agents as needed
-4. If shipping rules, create `install.sh` to copy rules to `~/.claude/rules/`
-5. Register in `.claude-plugin/marketplace.json`
+1. 在 `plugins/<name>/` 下创建目录
+2. 创建 `.claude-plugin/plugin.json`，包含 `name`、`version`、`description`
+3. 按需添加 skills 和 agents
+4. 如需提供 rules，创建 `install.sh` 将 rules 复制到 `~/.claude/rules/`
+5. 在 `.claude-plugin/marketplace.json` 中注册
 
-## 2. Registering a Plugin
+## 2. 注册插件
 
-After creating or modifying a plugin, ensure it's registered in the marketplace manifest:
+创建或修改插件后，确保它在市场清单中已注册：
 
 ```json
 {
@@ -22,13 +22,13 @@ After creating or modifying a plugin, ensure it's registered in the marketplace 
 }
 ```
 
-## 3. Versioning
+## 3. 版本管理
 
-Bump the `version` field in `.claude-plugin/plugin.json` after each meaningful change. Use [semantic versioning](https://semver.org/):
+每次有意义的更改后，更新 `.claude-plugin/plugin.json` 中的 `version` 字段。使用[语义化版本](https://semver.org/)：
 
-- **patch** — bug fixes, docs, minor tweaks
-- **minor** — new skills, agents, or features
-- **major** — breaking changes to existing components
+- **patch** — bug 修复、文档、小改动
+- **minor** — 新 skills、agents 或功能
+- **major** — 对现有组件的破坏性变更
 
 ```json
 {
@@ -37,81 +37,81 @@ Bump the `version` field in `.claude-plugin/plugin.json` after each meaningful c
 }
 ```
 
-## 4. Creating Components
+## 4. 创建组件
 
 ### Skills
 
-1. Create `plugins/<plugin>/skills/<skill-name>/SKILL.md`
-2. Write frontmatter with third-person description and trigger phrases
-3. Write lean body in imperative form
-4. Move detailed content to `references/` for progressive disclosure
-5. Add examples in `examples/`
+1. 创建 `plugins/<plugin>/skills/<skill-name>/SKILL.md`
+2. 编写包含第三人称描述和触发短语的 frontmatter
+3. 以祈使句形式编写简洁主体
+4. 将详细内容移至 `references/` 实现渐进式披露
+5. 在 `examples/` 中添加示例
 
 ### Agents
 
-1. Create `plugins/<plugin>/agents/<agent-name>.md`
-2. Write frontmatter with description and capabilities
-3. Write system prompt with trigger conditions and output format
+1. 创建 `plugins/<plugin>/agents/<agent-name>.md`
+2. 编写包含描述和 capabilities 的 frontmatter
+3. 编写包含触发条件和输出格式的系统提示
 
-## 5. Local Development & Debugging
+## 5. 本地开发与调试
 
-### Setup
+### 设置
 
 ```bash
-# Add local marketplace
+# 添加本地市场
 /plugin marketplace add ./my-marketplace
 
-# Install plugins
+# 安装插件
 /plugin install cli-builder
 /plugin install code-style
 
-# For code-style plugin, also copy rules
+# 对于 code-style 插件，还需复制 rules
 bash plugins/code-style/install.sh
 ```
 
-### Verify
+### 验证
 
-Run `/plugin` and check the **Installed** tab. For skills, perform the expected action (e.g., edit a `.ts` file to verify `ts-style` auto-triggers).
+运行 `/plugin` 并检查 **Installed** 标签。对于 skills，执行预期操作（如编辑 `.ts` 文件验证 `ts-style` 是否自动触发）。
 
-### Iterate
+### 迭代
 
-After modifying skills or agents:
+修改 skills 或 agents 后：
 
-1. Clear cache: `rm -rf ~/.claude/plugins/cache`
-2. Run `/reload-plugins` (or restart Claude Code)
-3. Re-test the trigger
+1. 清除缓存：`rm -rf ~/.claude/plugins/cache`
+2. 运行 `/reload-plugins`（或重启 Claude Code）
+3. 重新测试触发
 
-### Cleanup
+### 清理
 
 ```bash
 /plugin marketplace remove ./my-marketplace
 ```
 
-## 6. Pre-Commit Checklist
+## 6. 提交前检查清单
 
-Before committing plugin changes:
+提交插件更改前：
 
-- [ ] Version bumped in `.claude-plugin/plugin.json`
-- [ ] `.claude-plugin/marketplace.json` updated if metadata changed
-- [ ] Plugin README.md reflects current components
-- [ ] Root `README.md` updated if plugin purpose/components changed
-- [ ] `CLAUDE.md` updated if plugin list or install commands changed
-- [ ] No documentation references removed or stale features
+- [ ] `.claude-plugin/plugin.json` 中的版本已更新
+- [ ] 如果元数据有变，`.claude-plugin/marketplace.json` 已更新
+- [ ] 插件 README.md 反映了当前组件
+- [ ] 如果插件用途或组件有变，根 `README.md` 已更新
+- [ ] 如果插件列表或安装命令有变，`CLAUDE.md` 已更新
+- [ ] 无文档引用失效或功能过时的情况
 
-## 7. Documentation Maintenance
+## 7. 文档维护
 
-### Cross-Reference Rules
+### 交叉引用规则
 
-| When modifying | Also check/update |
-|----------------|-------------------|
-| `docs/*.md` | Root `README.md` — remove or update any link pointing to the changed file |
-| `plugins/<name>/skills/`, `agents/`, `rules/`, `install.sh` | `plugins/<name>/README.md` — update component counts and descriptions |
-| `plugins/<name>/README.md` | Root `README.md` — sync if plugin purpose or components changed |
-| Root `README.md` | `CLAUDE.md` — sync if install commands or plugin list changed |
+| 修改时 | 同时检查/更新 |
+|--------|---------------|
+| `docs/*.md` | 根 `README.md` — 移除或更新指向已更改文件的链接 |
+| `plugins/<name>/skills/`、`agents/`、`rules/`、`install.sh` | `plugins/<name>/README.md` — 更新组件数量和描述 |
+| `plugins/<name>/README.md` | 根 `README.md` — 如果插件用途或组件有变则同步 |
+| 根 `README.md` | `CLAUDE.md` — 如果安装命令或插件列表有变则同步 |
 
-### Content Rules
+### 内容规则
 
-- Document **only existing features** — never reference removed or deleted functionality
-- Keep component counts accurate (skills, agents, rules)
-- Install commands must match current behavior
-- Update descriptions to reflect current behavior, not legacy behavior
+- **仅记录现有功能** — 不要引用已删除的功能
+- 保持组件数量准确（skills、agents、rules）
+- 安装命令必须与当前行为一致
+- 更新描述以反映当前行为，而非历史行为

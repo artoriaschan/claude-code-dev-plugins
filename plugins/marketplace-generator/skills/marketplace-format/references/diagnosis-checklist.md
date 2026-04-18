@@ -1,46 +1,46 @@
-# Diagnosis Checklist
+# 诊断清单
 
-Run all checks below. Group findings by category (A-E). Report each as PASS or FAIL with specific file path and fix instruction.
+运行以下所有检查。按类别（A-E）分组发现。每项报告为 PASS 或 FAIL，并附带具体文件路径和修复说明。
 
-## A. Project-level (6 checks)
+## A. 项目级（6 项检查）
 
-1. `.claude-plugin/marketplace.json` exists and is valid JSON
-2. `marketplace.json.name` exists and is non-empty
-3. `marketplace.json.description` exists and is non-empty
-4. `marketplace.json.owner` has both `name` and `email` fields
-5. `marketplace.json.plugins` array exists
-6. Each `plugins[].source` starts with `./plugins/` and the directory exists on disk
+1. `.claude-plugin/marketplace.json` 存在且为有效 JSON
+2. `marketplace.json.name` 存在且非空
+3. `marketplace.json.description` 存在且非空
+4. `marketplace.json.owner` 同时具有 `name` 和 `email` 字段
+5. `marketplace.json.plugins` 数组存在
+6. 每个 `plugins[].source` 以 `./plugins/` 开头且目录存在于磁盘上
 
-## B. Plugin-level (6 checks)
+## B. 插件级（6 项检查）
 
-7. Each plugin directory has `.claude-plugin/plugin.json`
-8. `plugin.json.name` uses kebab-case
-9. `plugin.json.version` follows semver (MAJOR.MINOR.PATCH)
-10. `plugin.json.description` is non-empty
-11. `plugin.json.author` has both `name` and `email` fields
-12. Plugin directory name matches `plugin.json.name`
+7. 每个插件目录都有 `.claude-plugin/plugin.json`
+8. `plugin.json.name` 使用 kebab-case
+9. `plugin.json.version` 遵循 semver（MAJOR.MINOR.PATCH）
+10. `plugin.json.description` 非空
+11. `plugin.json.author` 同时具有 `name` 和 `email` 字段
+12. 插件目录名称与 `plugin.json.name` 匹配
 
-## C. Cross-reference consistency (5 checks)
+## C. 交叉引用一致性（5 项检查）
 
-13. Every `marketplace.json.plugins` entry exists in `plugins/` directory
-14. Every `plugins/` subdirectory is registered in `marketplace.json.plugins`
-15. `CLAUDE.md` exists at project root and contains a Plugins section
-16. `CLAUDE.md` plugin list matches `marketplace.json.plugins` entries
-17. Project root `README.md` exists and includes a plugin list
+13. `marketplace.json.plugins` 中的每个条目都存在于 `plugins/` 目录中
+14. `plugins/` 的每个子目录都在 `marketplace.json.plugins` 中注册
+15. `CLAUDE.md` 存在于项目根目录且包含 Plugins 部分
+16. `CLAUDE.md` 中的插件列表与 `marketplace.json.plugins` 条目匹配
+17. 项目根目录 `README.md` 存在且包含插件列表
 
-## D. Documentation completeness (5 checks)
+## D. 文档完整性（5 项检查）
 
-18. `docs/project-structure.md` exists at project root
-19. `docs/plugins/` directory exists
-20. Each plugin has a corresponding `docs/plugins/<plugin-name>.md`
-21. Each plugin has `README.md` with `## What It Does`, `## Usage`, `## Authors` sections
-22. Each `docs/plugins/<plugin-name>.md` contains: Purpose section, Components table, Version number
+18. `docs/project-structure.md` 存在于项目根目录
+19. `docs/plugins/` 目录存在
+20. 每个插件都有对应的 `docs/plugins/<plugin-name>.md`
+21. 每个插件都有 `README.md`，包含 `## What It Does`、`## Usage`、`## Authors` 部分
+22. 每个 `docs/plugins/<plugin-name>.md` 包含：Purpose 部分、Components 表、Version 号
 
-## E. Component structure (6 checks)
+## E. 组件结构（6 项检查）
 
-23. Skills: `skills/<name>/SKILL.md` frontmatter has only `name` and `description` (no `version`)
-24. Agents: `agents/<name>.md` frontmatter has `name`, `description`, `model`, and `color`
-25. Hooks: `hooks/hooks.json` exists, is valid JSON, has event structure
-26. Rules: `rules/` files use kebab-case naming
-27. Component frontmatter `name` matches directory or filename
-28. Component `description` fields are non-empty
+23. Skills：`skills/<name>/SKILL.md` frontmatter 仅有 `name` 和 `description`（无 `version`）
+24. Agents：`agents/<name>.md` frontmatter 具有 `name`、`description`、`model` 和 `color`
+25. Hooks：`hooks/hooks.json` 存在、为有效 JSON、具有事件结构
+26. Rules：`rules/` 文件使用 kebab-case 命名
+27. 组件 frontmatter `name` 与目录或文件名匹配
+28. 组件 `description` 字段非空

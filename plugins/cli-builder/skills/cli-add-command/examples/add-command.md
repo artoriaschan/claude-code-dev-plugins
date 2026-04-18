@@ -1,16 +1,16 @@
-# Example: Generated `add` Command with Arguments and Options
+# 示例：生成的带参数和选项的 `add` 命令
 
-## Input Collected from User
+## 从用户收集的输入
 
-| Field | Value |
+| 字段 | 值 |
 |-------|-------|
-| Command name | `add` |
-| Description | Add a new resource to the project |
-| Arguments | `name` (resource name), `type` (resource type) |
-| Options | `--dry-run` (preview only), `--output` (output directory) |
-| Interactive prompts | No |
+| 命令名称 | `add` |
+| 描述 | 向项目添加新资源 |
+| 参数 | `name`（资源名称），`type`（资源类型） |
+| 选项 | `--dry-run`（仅预览），`--output`（输出目录） |
+| 交互式提示 | 否 |
 
-## Generated File: `packages/cli/src/commands/add.ts`
+## 生成的文件：`packages/cli/src/commands/add.ts`
 
 ```typescript
 import { Command } from 'commander'
@@ -48,13 +48,13 @@ export function registerAdd(program: Command) {
 }
 ```
 
-## Barrel Export: `packages/cli/src/commands/index.ts`
+## Barrel 导出：`packages/cli/src/commands/index.ts`
 
 ```typescript
 export { registerAdd } from './add.js'
 ```
 
-## Test Stub: `packages/cli/tests/add.spec.ts`
+## 测试存根：`packages/cli/tests/add.spec.ts`
 
 ```typescript
 import { describe, it, expect } from 'vitest'

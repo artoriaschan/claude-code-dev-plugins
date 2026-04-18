@@ -1,7 +1,7 @@
-# Plugin Manifest Template
+# 插件清单模板
 
-Create `.claude-plugin/plugin.json` for each plugin.
-Get author info from `git config user.name` and `git config user.email`.
+为每个插件创建 `.claude-plugin/plugin.json`。
+从 `git config user.name` 和 `git config user.email` 获取作者信息。
 
 ```json
 {

@@ -1,34 +1,34 @@
 # cli-builder
 
-CLI tool builder plugin for Claude Code — TypeScript CLI project scaffolding and command template generation following modern ESM conventions.
+Claude Code CLI 工具构建插件 — 遵循现代 ESM 约定的 TypeScript CLI 项目脚手架和命令模板生成。
 
-## What It Does
+## 功能
 
-Provides two skills for building TypeScript CLI projects:
-- `cli-create` — Interactive project creation with pnpm workspace, Commander, Zod, Chalk, and full tooling (ESLint, Sheriff, Prettier, Husky, Changesets)
-- `cli-add-command` — Generate individual command files with Commander definitions, Zod validation schemas, Chalk output, and barrel exports
+提供两个用于构建 TypeScript CLI 项目的技能：
+- `cli-create` — 交互式项目创建，包含 pnpm workspace、Commander、Zod、Chalk 和完整工具链（ESLint、Sheriff、Prettier、Husky、Changesets）
+- `cli-add-command` — 生成命令文件，包含 Commander 定义、Zod 验证模式、Chalk 输出和 barrel exports
 
-**Simple mode**: Use `simple: true` flag to skip complex tooling (ESLint, Sheriff, Changesets) for lightweight projects.
+**简洁模式**：使用 `simple: true` 标志跳过复杂工具链（ESLint、Sheriff、Changesets），生成轻量级项目。
 
-## Usage
+## 使用
 
-Trigger phrases:
-- "create a CLI", "scaffold a CLI project" — generates a complete monorepo project
-- "add a command", "create a new CLI command" — generates a command template file
+触发短语：
+- "create a CLI"、"scaffold a CLI project" — 生成完整的 monorepo 项目
+- "add a command"、"create a new CLI command" — 生成命令模板文件
 
-## Components
+## 组件
 
-| Type | Name | Purpose |
-|------|------|---------|
-| Skill | `cli-create` | Interactive CLI project creation with TypeScript |
-| Skill | `cli-add-command` | Generate command template files |
+| 类型 | 名称 | 用途 |
+|------|------|------|
+| Skill | `cli-create` | TypeScript 交互式 CLI 项目创建 |
+| Skill | `cli-add-command` | 生成命令模板文件 |
 
-## Tech Stack
+## 技术栈
 
-Generated projects use:
+生成项目使用：
 - TypeScript ESM + Commander + Zod + Chalk 5.x + tsup + Vitest + @clack/prompts
 - pnpm workspace + ESLint + Sheriff + Prettier + Husky + Changesets
 
-## Authors
+## 作者
 
 artoriaschan (dalecracker@gmail.com)

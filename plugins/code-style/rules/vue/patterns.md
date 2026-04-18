@@ -1,10 +1,10 @@
-# Vue Patterns
+# Vue 模式
 
-> Common patterns for Vue projects.
+> Vue 项目的通用模式。
 
 ## Composables
 
-Encapsulate reusable logic with composables:
+使用 composables 封装可复用的逻辑：
 
 ```ts
 // composables/use-fetch.ts
@@ -33,10 +33,10 @@ export function useFetch<T>(url: string) {
 
 ## Provide / Inject
 
-Use provide/inject for deep component tree communication:
+使用 provide/inject 进行深层组件树通信：
 
 ```vue
-<!-- Parent -->
+<!-- 父组件 -->
 <script setup lang="ts">
 import { provide, ref } from 'vue'
 
@@ -44,7 +44,7 @@ const theme = ref('light')
 provide('theme', theme)
 </script>
 
-<!-- Child (deep) -->
+<!-- 子组件（深层） -->
 <script setup lang="ts">
 import { inject } from 'vue'
 
@@ -54,7 +54,7 @@ const theme = inject<Ref<string>>('theme')
 
 ## Slots
 
-Use slots for flexible component composition:
+使用 slots 实现灵活的组件组合：
 
 ```vue
 <!-- Card.vue -->
@@ -73,12 +73,12 @@ Use slots for flexible component composition:
 </template>
 ```
 
-## URL As State
+## URL 作为状态
 
-Persist shareable state in the URL via router:
+通过 router 将可共享的状态持久化到 URL 中：
 
 ```ts
-// Use router query params for filters, pagination, etc.
+// 使用 router query 参数处理筛选、分页等
 const route = useRoute()
 const router = useRouter()
 

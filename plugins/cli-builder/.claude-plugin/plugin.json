@@ -1,7 +1,7 @@
 {
   "name": "cli-builder",
   "version": "0.1.4",
-  "description": "CLI tool builder for TypeScript — interactive scaffolding and command template generation following modern ESM conventions",
+  "description": "TypeScript CLI 工具构建器 — 遵循现代 ESM 约定的交互式脚手架和命令模板生成",
   "author": {
     "name": "artoriaschan",
     "email": "dalecracker@gmail.com"

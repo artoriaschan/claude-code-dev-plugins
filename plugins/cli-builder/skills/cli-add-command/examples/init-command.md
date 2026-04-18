@@ -1,16 +1,16 @@
-# Example: Generated `init` Command
+# 示例：生成的 `init` 命令
 
-## Input Collected from User
+## 从用户收集的输入
 
-| Field | Value |
+| 字段 | 值 |
 |-------|-------|
-| Command name | `init` |
-| Description | Initialize a new project configuration |
-| Arguments | None |
-| Options | `--name, -n` (project name), `--template, -t` (template preset) |
-| Interactive prompts | Yes |
+| 命令名称 | `init` |
+| 描述 | 初始化新的项目配置 |
+| 参数 | 无 |
+| 选项 | `--name, -n`（项目名称），`--template, -t`（模板预设） |
+| 交互式提示 | 是 |
 
-## Generated File: `packages/cli/src/commands/init.ts`
+## 生成的文件：`packages/cli/src/commands/init.ts`
 
 ```typescript
 import { Command } from 'commander'
@@ -61,13 +61,13 @@ export function registerInit(program: Command) {
 }
 ```
 
-## Barrel Export: `packages/cli/src/commands/index.ts`
+## Barrel 导出：`packages/cli/src/commands/index.ts`
 
 ```typescript
 export { registerInit } from './init.js'
 ```
 
-## Test Stub: `packages/cli/tests/init.spec.ts`
+## 测试存根：`packages/cli/tests/init.spec.ts`
 
 ```typescript
 import { describe, it, expect } from 'vitest'

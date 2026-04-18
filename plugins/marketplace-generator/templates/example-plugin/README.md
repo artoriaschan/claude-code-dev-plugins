@@ -1,18 +1,18 @@
 # Example Plugin
 
-A demonstration plugin showing all Claude Code plugin component types.
+展示 Claude Code 插件所有组件类型的示例插件。
 
-## What It Does
+## 功能
 
-Shows the proper structure for creating plugins with:
+展示创建插件的正确结构，包含：
 
-- Skills (auto-activating knowledge bases)
-- Agents (autonomous task execution)
-- Hooks (event-driven automation)
-- Rules (custom coding conventions)
+- 技能（自动激活的知识库）
+- 代理（自主任务执行）
+- 钩子（事件驱动的自动化）
+- 规则（自定义编码规范）
 
-## Usage
+## 使用
 
-Study this plugin as a reference template when creating your own plugins in the marketplace.
+在市场中创建自己的插件时，可将此插件作为参考模板。
 
-## Authors
+## 作者

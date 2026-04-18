@@ -1,99 +1,99 @@
 ---
 name: marketplace-create
-description: This skill should be used when creating a new Claude Code plugin marketplace project from scratch. Triggers: "create a plugin marketplace", "set up a new marketplace", "scaffold a plugin marketplace", "build a Claude Code plugin collection". Guides through requirements collection, project generation, documentation, and validation.
+description: 在从头创建新的 Claude Code 插件 marketplace 项目时使用此技能。触发条件："create a plugin marketplace"、"set up a new marketplace"、"scaffold a plugin marketplace"、"build a Claude Code plugin collection"。引导完成需求收集、项目生成、文档和验证。
 ---
 
-# Marketplace Create
+# Marketplace 创建
 
-Guide users through creating a complete Claude Code plugin marketplace project. Organized into four phases: Collect, Generate, Document, Validate.
+引导用户创建完整的 Claude Code 插件 marketplace 项目。分为四个阶段：收集、生成、文档、验证。
 
-## Trigger
+## 触发
 
-Auto-activate when user asks to create a new plugin marketplace project, or when they mention "create marketplace", "new marketplace", or "plugin market".
+当用户要求创建新的插件 marketplace 项目，或提及"create marketplace"、"new marketplace"或"plugin market"时自动激活。
 
-## Phase 1: Collect
+## 阶段 1：收集
 
-Ask questions one at a time to gather requirements:
+逐个提问以收集需求：
 
-### 1. Marketplace Name
-Ask the user for the marketplace project name (kebab-case). Suggest a descriptive name if they're unsure.
+### 1. Marketplace 名称
+询问用户 marketplace 项目名称（kebab-case）。如果用户不确定，建议一个描述性名称。
 
-### 2. Marketplace Description
-Ask what the marketplace is for. Help them write a clear, concise description.
+### 2. Marketplace 描述
+询问 marketplace 的用途。帮助用户编写清晰、简洁的描述。
 
-### 3. Plugin Planning
-Ask the user what plugins they want to include in the marketplace. Guide them through:
-- How many plugins?
-- What is each plugin's purpose?
-- What components should each plugin have (skills, agents, hooks, rules)?
+### 3. 插件规划
+询问用户想在 marketplace 中包含哪些插件。引导用户：
+- 需要多少个插件？
+- 每个插件的用途是什么？
+- 每个插件应该有哪些组件（skills、agents、hooks、rules）？
 
-If the user is unsure, suggest a reasonable default set.
+如果用户不确定，建议一个合理的默认集合。
 
-## Phase 2: Generate
+## 阶段 2：生成
 
-After all information is collected, generate the project. Use templates from `references/` directory.
+收集完所有信息后，生成项目。使用 `references/` 目录中的模板。
 
-### Directory Structure
+### 目录结构
 ```bash
 mkdir -p <marketplace-name>/.claude-plugin
 mkdir -p <marketplace-name>/plugins
 mkdir -p <marketplace-name>/docs/plugins
 ```
 
-### Plugin Manifests
-For each planned plugin, create:
+### 插件清单
+为每个规划的插件创建：
 ```bash
 mkdir -p <marketplace-name>/plugins/<plugin-name>/.claude-plugin
 ```
 
-Create the manifest using `references/plugin-manifest.md` template. Run `git config user.name` and `git config user.email` to populate the `author` field.
+使用 `references/plugin-manifest.md` 模板创建清单。运行 `git config user.name` 和 `git config user.email` 来填充 `author` 字段。
 
-### Plugin README
-Create `README.md` for each plugin using `references/plugin-readme.md` template. Run `git config user.name` and `git config user.email` to populate the `## Authors` section.
+### 插件 README
+使用 `references/plugin-readme.md` 模板为每个插件创建 `README.md`。运行 `git config user.name` 和 `git config user.email` 来填充 `## Authors` 部分。
 
 ### marketplace.json
-Create `.claude-plugin/marketplace.json` using `references/marketplace-json.md` template. Run `git config user.name` and `git config user.email` to populate the `owner` field.
+使用 `references/marketplace-json.md` 模板创建 `.claude-plugin/marketplace.json`。运行 `git config user.name` 和 `git config user.email` 来填充 `owner` 字段。
 
-### Example Plugin
-Copy the built-in example plugin from this plugin's `templates/example-plugin/` directory to `<marketplace-name>/plugins/example-plugin/`.
+### 示例插件
+将此插件的 `templates/example-plugin/` 目录下的内置示例插件复制到 `<marketplace-name>/plugins/example-plugin/`。
 
-## Phase 3: Document
+## 阶段 3：文档
 
-Generate all documentation. Use templates from `references/` directory.
+生成所有文档。使用 `references/` 目录中的模板。
 
 ### CLAUDE.md
-Create `<marketplace-name>/CLAUDE.md` using `references/claude-md.md` template. Add one link line per plugin: `- [<plugin-name>](docs/plugins/<plugin-name>.md) — <description>`
+使用 `references/claude-md.md` 模板创建 `<marketplace-name>/CLAUDE.md`。为每个插件添加一行链接：`- [<plugin-name>](docs/plugins/<plugin-name>.md) — <description>`
 
 ### docs/project-structure.md
-Create `<marketplace-name>/docs/project-structure.md` using `references/project-structure.md` template. Replace `<marketplace-name>` with actual value.
+使用 `references/project-structure.md` 模板创建 `<marketplace-name>/docs/project-structure.md`。将 `<marketplace-name>` 替换为实际值。
 
 ### docs/plugins/<plugin-name>.md
-For each plugin (including example-plugin), create `<marketplace-name>/docs/plugins/<plugin-name>.md` using `references/plugin-doc.md` template. Only include component rows that actually exist for that plugin.
+为每个插件（包括 example-plugin），使用 `references/plugin-doc.md` 模板创建 `<marketplace-name>/docs/plugins/<plugin-name>.md`。仅包含该插件实际存在的组件行。
 
 ### README.md
-Create `<marketplace-name>/README.md` with:
-- Marketplace name and description
-- List of included plugins (with links to `docs/plugins/`)
-- Installation instructions (`marketplace add`)
-- Quick start guide
-- Link to `docs/project-structure.md` for project layout
+创建 `<marketplace-name>/README.md`，包含：
+- Marketplace 名称和描述
+- 包含的插件列表（链接到 `docs/plugins/`）
+- 安装说明（`marketplace add`）
+- 快速入门指南
+- 链接到 `docs/project-structure.md` 查看项目布局
 
-## Phase 4: Validate
+## 阶段 4：验证
 
-Use the **marketplace-validator** agent to verify the complete project. Ensure:
-- Every plugin in `plugins/` has a valid `.claude-plugin/plugin.json` with `author` field populated
-- All plugins in `plugins/` are referenced in `marketplace.json`
-- All entries in `marketplace.json` exist in `plugins/`
-- `marketplace.json` has correct relative paths and `owner` field populated
-- `CLAUDE.md` references correct doc file paths
-- `docs/plugins/` has a file for each plugin in `plugins/`
-- README plugin list matches `plugins/` directory
-- All plugin READMEs have `## Authors` section populated
+使用 **marketplace-validator** agent 验证完整项目。确保：
+- `plugins/` 中的每个插件都有有效的 `.claude-plugin/plugin.json`，且 `author` 字段已填充
+- `plugins/` 中的所有插件都在 `marketplace.json` 中引用
+- `marketplace.json` 中的所有条目都存在于 `plugins/` 中
+- `marketplace.json` 具有正确的相对路径且 `owner` 字段已填充
+- `CLAUDE.md` 引用正确的文档文件路径
+- `docs/plugins/` 中有 `plugins/` 中每个插件对应的文件
+- README 中的插件列表与 `plugins/` 目录匹配
+- 所有插件 README 的 `## Authors` 部分已填充
 
-## Rules
+## 规则
 
-- Ask questions one at a time during Phase 1 (Collect)
-- Never skip Phase 1 — always gather requirements before generating
-- Validate all plugin names are kebab-case
-- Ensure every plugin has a valid `.claude-plugin/plugin.json`
-- Copy the example plugin from `templates/example-plugin/` in this plugin
+- 阶段 1（收集）期间逐个提问
+- 绝不跳过阶段 1 — 生成前始终先收集需求
+- 验证所有插件名称为 kebab-case
+- 确保每个插件都有有效的 `.claude-plugin/plugin.json`
+- 从此插件的 `templates/example-plugin/` 复制示例插件

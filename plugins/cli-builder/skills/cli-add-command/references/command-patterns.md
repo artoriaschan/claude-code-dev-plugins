@@ -1,69 +1,69 @@
-# Command Patterns
+# 命令模式
 
-Different command generation patterns based on user requirements.
+基于用户需求的不同命令生成模式。
 
-## Pattern A: Simple Command (No Arguments, No Options)
+## 模式 A：简单命令（无参数、无选项）
 
-Minimal command with only a name and description.
+最简命令，仅有名称和描述。
 
-**Use when:** User says "add a command called X" without mentioning arguments or flags.
+**使用时机：** 用户说"添加一个名为 X 的命令"，且未提及参数或标志。
 
-**Key elements:**
-- Commander `.command()` and `.description()` only
-- No `.argument()` or `.option()` calls
-- Action body: log completion message
+**关键元素：**
+- 仅使用 Commander `.command()` 和 `.description()`
+- 无 `.argument()` 或 `.option()` 调用
+- Action 体：记录完成消息
 
-## Pattern B: Command with Arguments
+## 模式 B：带参数的命令
 
-Command that accepts positional arguments.
+接受位置参数的命令。
 
-**Use when:** User specifies positional inputs (e.g., "takes a file path", "requires a project name").
+**使用时机：** 用户指定位置输入（如"接收文件路径"、"需要项目名称"）。
 
-**Key elements:**
-- `.argument('<name>', '<description>')` for each argument
-- Optional arguments use `<>` for required, `[]` for optional
-- Validate argument count in action body
+**关键元素：**
+- 每个参数使用 `.argument('<name>', '<description>')`
+- 可选参数使用 `<>` 表示必需，`[]` 表示可选
+- 在 action 体中验证参数数量
 
-## Pattern C: Command with Options
+## 模式 C：带选项的命令
 
-Command that accepts named flags/options.
+接受命名标志/选项的命令。
 
-**Use when:** User mentions flags (e.g., "--verbose", "--output", "-f", "with a dry-run option").
+**使用时机：** 用户提及标志（如"--verbose"、"--output"、"-f"、"带 dry-run 选项"）。
 
-**Key elements:**
+**关键元素：**
 - `.option('<flag>, <shorthand>', '<description>')`
-- Options may have default values via third parameter
-- Parse options from action callback parameter
+- 选项可通过第三个参数设置默认值
+- 从 action 回调参数解析选项
 
-## Pattern D: Command with Arguments and Options
+## 模式 D：带参数和选项的命令
 
-Combines both positional and named inputs.
+同时接受位置和命名输入。
 
-**Use when:** User specifies both arguments and flags.
+**使用时机：** 用户同时指定参数和标志。
 
-**Key elements:**
-- `.argument()` calls before `.option()` calls
-- Action callback receives arguments first, then options object
-- Zod schema validates options
+**关键元素：**
+- `.argument()` 调用在 `.option()` 调用之前
+- Action 回调先接收参数，再接收选项对象
+- Zod schema 验证选项
 
-## Pattern E: Interactive Command
+## 模式 E：交互式命令
 
-Uses @clack/prompts for guided input during execution.
+使用 @clack/prompts 在执行期间进行引导式输入。
 
-**Use when:** User mentions "interactive", "prompts", "asks the user", or "wizard-style".
+**使用时机：** 用户提及"interactive"、"prompts"、"asks the user"或"wizard-style"。
 
-**Key elements:**
-- Import `text`, `confirm`, `select`, or `spinner` from `@clack/prompts`
-- Collect input via prompts in action body
-- Still validate collected data with Zod schema
+**关键元素：**
+- 从 `@clack/prompts` 导入 `text`、`confirm`、`select` 或 `spinner`
+- 在 action 体中通过提示收集输入
+- 仍然使用 Zod schema 验证收集的数据
 
-## Pattern F: Non-Interactive with External Input
+## 模式 F：非交互式带外部输入
 
-Reads from stdin, file, or environment for input.
+从 stdin、文件或环境读取输入。
 
-**Use when:** User mentions "piped input", "reads from file", "CI-friendly", or "non-interactive".
+**使用时机：** 用户提及"piped input"、"reads from file"、"CI-friendly"或"non-interactive"。
 
-**Key elements:**
-- No @clack/prompts import
-- Read from `process.stdin` or `fs.readFileSync`
-- Fail fast with clear error if input is missing
+**关键元素：**
+- 不导入 @clack/prompts
+- 从 `process.stdin` 或 `fs.readFileSync` 读取
+- 如果输入缺失则快速失败并给出清晰错误
