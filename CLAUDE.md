@@ -1,4 +1,4 @@
-# Claude Code 插件管理
+# Claude Code 开发插件
 
 ## 项目目的
 
@@ -6,25 +6,40 @@
 
 **仓库地址：** https://github.com/artoriaschan/claude-code-dev-plugins
 
-## 快速导航
+## 关键：双层架构
 
-| 任务 | 参考文档 |
-|------|----------|
-| 项目简介和背景 | `docs/project-overview.md` |
-| 插件目录布局和清单格式 | `docs/plugin-structure.md` |
-| 如何开发插件 | `docs/development-workflow.md` |
+此仓库有多个 `.claude-plugin/` 文件夹:
 
-## 活跃插件
+| 层级  | 路径                                             | 目的              |
+| ------ | ------------------------------------------------ | -------------------- |
+| 根目录   | `/.claude-plugin/marketplace.json`               | 市场清单 |
+| Plugin | `/plugins/{plugin-name}/.claude-plugin/plugin.json` | 插件清单      |
 
-| 插件 | 组件 | 用途 |
-|------|------|------|
-| `cli-builder` | 2 个 skills | TypeScript CLI 项目脚手架（含简洁模式）和命令模板生成 |
-| `code-style` | 5 个 skills, 1 个 agent, 11 个 rules | 为 AI 生成代码强制执行个人编码风格规范 |
-| `marketplace-generator` | 3 个 skills, 1 个 agent | 生成完整的 Claude Code 插件市场项目，含引导式工作流和格式化现有项目 |
+**测试**: `claude --plugin-dir plugins/{plugin-name}` (非根目录)
 
-## 核心约定
+## 关键约定
 
-- 每个插件拥有独立的 `.claude-plugin/plugin.json` 清单文件
-- 插件文件位于 `plugins/<name>/` — 自包含且可独立部署
-- Skills 和 agents 从标准目录自动发现
-- 代码规范使用现代 TypeScript 模式（ESM、严格模式）
+- 路径：使用 ${CLAUDE_PLUGIN_ROOT} 表示可移植路径
+- 技能：渐进式披露（SKILL.md + references/ + examples/）
+- 描述：第三人称（"当使用此技能时..."）
+- 版本：同步于 plugin.json、marketplace.json
+
+
+## 基本命令
+
+```bash
+# 本地测试插件
+claude --plugin-dir plugins/{plugin-name}
+
+# 校验markdown
+markdownlint-cli2 '**/*.md'
+
+# 格式化markdown
+prettier --write '**/*.md'
+
+# 校验shell脚本
+shellcheck plugins/{plugin-name}/skills/*/scripts/*.sh
+
+# 校验YAML文件
+uvx yamllint .github/workflows/
+```

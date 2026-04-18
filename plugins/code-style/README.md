@@ -26,12 +26,13 @@
 **远程安装（推荐）：**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/plugins/code-style/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/install.sh | bash
 ```
 
 **本地安装：**
 
 ```bash
+# 在仓库根目录执行
 ./install.sh
 ```
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-code-dev-plugins",
-  "description": "Personal Claude Code plugin collection for TypeScript CLI development workflows",
+  "description": "个人 Claude Code 插件集合，用于 TypeScript CLI 开发工作流",
   "owner": {
     "name": "artoriaschan",
     "email": "dalecracker@gmail.com"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "cli-builder",
-      "description": "TypeScript CLI project scaffolding and command template generation. Interactively generates monorepo projects (pnpm + Commander + Zod + Chalk 5.x + tsup + Vitest + @clack/prompts) with proper structure, and generates individual command templates with Commander definitions, Zod validation, and barrel exports.",
+      "description": "TypeScript CLI 项目脚手架和命令模板生成。交互式生成 monorepo 项目（pnpm + Commander + Zod + Chalk 5.x + tsup + Vitest + @clack/prompts），以及带有 Commander 定义、Zod 验证和 barrel 导出的命令模板。",
       "category": "development",
       "source": "./plugins/cli-builder",
       "tags": [
@@ -24,18 +24,18 @@
         "skills": [
           {
             "name": "cli-create",
-            "description": "Interactive CLI project creation — guides users through project configuration and generates complete monorepo scaffolds with TypeScript ESM, Commander, Zod, Chalk, and full tooling (ESLint, Prettier, Husky, Changesets)"
+            "description": "交互式 CLI 项目创建 — 引导用户完成项目配置，生成完整的 monorepo 脚手架，包含 TypeScript ESM、Commander、Zod、Chalk 及完整工具链（ESLint、Prettier、Husky、Changesets）"
           },
           {
             "name": "cli-add-command",
-            "description": "Command template generation — creates individual command files with Commander definition, Zod validation schema, Chalk output, barrel exports, and test stubs"
+            "description": "命令模板生成 — 创建带有 Commander 定义、Zod 验证模式、Chalk 输出、barrel 导出和测试桩的单个命令文件"
           }
         ]
       }
     },
     {
       "name": "code-style",
-      "description": "Enforce personal coding style conventions for AI-generated code. Strict naming (camelCase/PascalCase/kebab-case), import order, file organization, comment guidelines, and error handling rules across TypeScript, React, Vue, and SCSS projects.",
+      "description": "为 AI 生成的代码强制执行个人编码风格规范。包含严格的命名规则（camelCase/PascalCase/kebab-case）、导入顺序、文件组织、注释规范和错误处理规则，覆盖 TypeScript、React、Vue 和 SCSS 项目。",
       "category": "development",
       "source": "./plugins/code-style",
       "tags": [
@@ -53,64 +53,29 @@
         "skills": [
           {
             "name": "code-style-principles",
-            "description": "Universal coding style principles with good vs bad examples — naming conventions, file organization, comment guidelines, error handling best practices"
+            "description": "通用编码风格原则，含正反面示例 — 命名规范、文件组织、注释规范、错误处理最佳实践"
           },
           {
             "name": "ts-style",
-            "description": "TypeScript style guide — types, import order, file structure, error handling conventions"
+            "description": "TypeScript 风格指南 — 类型定义、导入顺序、文件结构、错误处理规范"
           },
           {
             "name": "react-style",
-            "description": "React style guide — component patterns, hooks usage, error boundaries, prop typing"
+            "description": "React 风格指南 — 组件模式、hooks 用法、error boundaries、props 类型定义"
           },
           {
             "name": "vue-style",
-            "description": "Vue style guide — composition API, component patterns, props/emits typing, error handling"
+            "description": "Vue 风格指南 — Composition API、组件模式、props/emits 类型定义、错误处理"
           },
           {
             "name": "scss-style",
-            "description": "SCSS style guide — naming conventions, nesting limits, variable tokens, file organization"
+            "description": "SCSS 风格指南 — 命名规范、嵌套限制、变量 tokens、文件组织"
           }
         ],
         "agents": [
           {
             "name": "code-style-reviewer",
-            "description": "Deep code style review agent — checks naming, import order, file organization, comments, error handling, and TypeScript compliance before commits"
-          }
-        ]
-      }
-    },
-    {
-      "name": "marketplace-generator",
-      "description": "Generate complete Claude Code plugin marketplace projects with guided workflows and example plugins. Provides marketplace-create skill for project creation and marketplace-dev-workflow skill for enforcing development standards.",
-      "category": "development",
-      "source": "./plugins/marketplace-generator",
-      "tags": [
-        "marketplace",
-        "plugin",
-        "scaffold",
-        "codegen",
-        "workflow"
-      ],
-      "components": {
-        "skills": [
-          {
-            "name": "marketplace-create",
-            "description": "Guide users through creating a complete Claude Code plugin marketplace project from scratch — Collect, Generate, Document, Validate phases"
-          },
-          {
-            "name": "marketplace-dev-workflow",
-            "description": "Enforce development workflow standards when developing, adding, or modifying plugins in a marketplace project"
-          },
-          {
-            "name": "marketplace-format",
-            "description": "Scan, diagnose, and batch-fix format inconsistencies in existing plugin marketplace projects"
-          }
-        ],
-        "agents": [
-          {
-            "name": "marketplace-validator",
-            "description": "Validate a plugin marketplace project for structural integrity, consistency, and compliance with development standards"
+            "description": "深度代码风格审查代理 — 提交前检查命名、导入顺序、文件组织、注释、错误处理和 TypeScript 合规性"
           }
         ]
       }

@@ -8,7 +8,6 @@
 |------|------|------|
 | **cli-builder** | TypeScript CLI 项目脚手架（含简洁模式）和命令模板 | [plugins/cli-builder/README.md](plugins/cli-builder/README.md) |
 | **code-style** | TypeScript、React、Vue 和 SCSS 编码风格规范 | [plugins/code-style/README.md](plugins/code-style/README.md) |
-| **marketplace-generator** | 生成完整的 Claude Code 插件市场项目，支持引导式工作流和格式化现有项目 | [plugins/marketplace-generator/README.md](plugins/marketplace-generator/README.md) |
 
 ## 快速开始
 
@@ -20,10 +19,10 @@
 /plugin install code-style
 ```
 
-> **注意：** 安装 `code-style` 插件后，需要运行以下命令安装规则文件：
+> **注意：** 安装包含 rules 的插件后，运行以下命令安装所有规则文件：
 >
 > ```bash
-> curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/plugins/code-style/install.sh | bash
+> curl -fsSL https://raw.githubusercontent.com/artoriaschan/claude-code-dev-plugins/main/install.sh | bash
 > ```
 
 ## 添加新插件

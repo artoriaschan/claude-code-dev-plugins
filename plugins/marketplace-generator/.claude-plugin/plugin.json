@@ -1,9 +1,0 @@
-{
-  "name": "marketplace-generator",
-  "version": "0.1.1",
-  "description": "生成完整的 Claude Code 插件市场项目，包含引导式工作流和示例插件",
-  "author": {
-    "name": "artoriaschan",
-    "email": "dalecracker@gmail.com"
-  }
-}
